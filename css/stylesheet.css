@@ -184,7 +184,7 @@ section {
     justify-content: center;
     text-align: center;
     padding: 120px 20px 60px 20px;
-    background: linear-gradient(rgba(10,10,10,0.6), rgba(10,10,10,0.9)), url('') center/cover no-repeat fixed;
+    background: linear-gradient(rgba(10,10,10,0.6), rgba(10,10,10,0.9)), url('../images/park.jpg') center/cover no-repeat;
 }
 
 .hero-content {
@@ -616,7 +616,7 @@ section {
 
 .faq-master-wrapper {
     max-width: 1200px;
-    margin: 0 auto -50px;
+    margin: 0 auto -70px;
     text-align: center;
 }
 
@@ -737,10 +737,37 @@ section {
 /* --- FOOTER & BACK TO TOP --- */
 footer {
     text-align: center;
-    padding: 40px 20px;
+    padding: 60px 20px;
     border-top: 1px solid var(--border-glass);
     color: var(--text-gray);
     font-size: 0.9rem;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+}
+
+.footer-links {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px 25px;
+}
+
+.footer-links a {
+    color: var(--text-gray);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: var(--accent-red);
 }
 
 .back-to-top {
