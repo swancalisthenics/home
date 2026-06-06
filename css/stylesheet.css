@@ -13,7 +13,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Libre Baskerville', serif;
     scroll-behavior: smooth;
     -webkit-tap-highlight-color: transparent;
 }
@@ -238,7 +238,67 @@ section {
     }
 }
 
-/* --- ÜBER UNS --- */
+/* --- COLLAPSIBLE FAQ SECTION --- */
+.section-master-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.section-master-trigger {
+    background: var(--bg-card);
+    color: white;
+    border: 1px solid var(--border-glass);
+    padding: 20px 40px;
+    border-radius: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    transition: all 0.3s ease;
+    margin: 0 auto 15px auto; /* Stark reduziert */
+    width: 100%; /* Volle Breite */
+    font-size: 2.2rem; /* Gleiche Größe wie andere Titel */
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.section-master-trigger:hover {
+    background: rgba(255, 255, 255, 0.08);
+    transform: translateY(-2px);
+}
+
+.section-master-trigger i {
+    font-size: 2rem;
+    color: var(--accent-red);
+    transition: transform 0.3s ease;
+}
+
+.section-master-wrapper.active .section-master-trigger i {
+    transform: rotate(180deg);
+}
+
+.section-master-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-in-out;
+}
+
+@media (max-width: 767px) {
+    .section-master-trigger {
+        font-size: 1.8rem;
+        padding: 20px 15px;
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+    .section-master-trigger span {
+        display: block;
+    }
+}
+
 .about-grid {
     display: grid;
     grid-template-columns: 1fr;
@@ -268,14 +328,22 @@ section {
 }
 
 @media (min-width: 768px) {
-    .about-grid { grid-template-columns: repeat(2, 1fr); }
+    .about-grid { 
+        grid-template-columns: repeat(2, 1fr); 
+    }
+    /* Zentriert das dritte Element in der Mitte unter den ersten beiden */
+    .about-card:nth-child(3) {
+        grid-column: span 2;
+        justify-self: center;
+        max-width: calc(50% - 15px);
+    }
 }
 
 /* --- CONTACT PERSONS SECTION --- */
 .contact-persons-intro {
     text-align: center;
     max-width: 800px;
-    margin: -20px auto 40px auto;
+    margin: 0 auto 20px auto;
     color: var(--text-gray);
 }
 
@@ -542,8 +610,50 @@ section {
 
 /* --- FAQ ACCORDION --- */
 .faq-container {
-    max-width: 800px;
+    max-width: 1200px;
     margin: 0 auto;
+}
+
+.faq-master-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.faq-master-trigger {
+    background: var(--accent-red);
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(230, 57, 70, 0.4);
+    margin-bottom: 20px;
+}
+
+.faq-master-trigger:hover {
+    background: var(--accent-red-hover);
+    transform: translateY(-2px);
+}
+
+.faq-master-trigger i {
+    transition: transform 0.3s ease;
+}
+
+.faq-master-wrapper.active .faq-master-trigger i {
+    transform: rotate(180deg);
+}
+
+.faq-master-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-in-out;
 }
 
 .faq-item {
@@ -654,14 +764,23 @@ footer {
     visibility: visible;
 }
 
-/* --- MOBILE MENU OVERLAY --- */
 @media (max-width: 767px) {
+    .hero h1 { font-size: 2.2rem; } /* Weiter reduziert von 2.8rem */
+    .hero p { font-size: 1rem; }
+    .section-title { font-size: 1.6rem; } /* Weiter reduziert von 2.2rem */
+    .section-master-trigger { 
+        font-size: 1.4rem; /* Etwas kleiner für einzeilige Darstellung */
+        padding: 15px 20px;
+        flex-direction: row; /* Kein Spalten-Layout */
+        gap: 12px;
+    }
+    
     .nav-container {
         padding: 15px 10px;
     }
     .nav-logo {
         gap: 6px;
-        font-size: 1rem; /* Schriftgröße verkleinert (Lösung 2) */
+        font-size: 0.95rem;
     }
     .menu-toggle { 
         display: block; 
@@ -681,7 +800,13 @@ footer {
         transition: left 0.4s ease;
     }
     .nav-menu.active { left: 0; }
-    .nav-menu a { font-size: 1.3rem; }
+    .nav-menu a { font-size: 1.3rem; } /* Zurück auf original 1.3rem */
+    
+    .about-card h3, .contact-person-info h3, .team-details h3, .level-content h3 {
+        font-size: 1.2rem;
+    }
+    
+    body { font-size: 0.9rem; }
 }
 
 /* --- SEPARATE PLESKHOLDER BLOG PAGE SYSTEM --- */
@@ -701,7 +826,7 @@ footer {
     padding: 0 20px;
 }
 .blog-placeholder i {
-    font-size: 4rem;
+    font-size: 3.5rem; /* Reduziert von 4rem */
     color: var(--accent-red);
     margin-bottom: 20px;
     animation: pulse 2s infinite;
