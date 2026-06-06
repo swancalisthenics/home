@@ -96,14 +96,14 @@ body {
 
 /* --- GLOBAL BENEFITS / LAYOUT --- */
 section {
-    padding: 40px 20px; /* Kleinerer Abstand auf Mobile */
+    padding: 30px 20px; /* Kleinerer Abstand auf Mobile */
     max-width: 1200px;
     margin: 0 auto;
 }
 
 @media (min-width: 768px) {
     section {
-        padding: 80px 20px; /* Originaler Abstand auf Desktop */
+        padding: 40px 20px; /* Originaler Abstand auf Desktop */
     }
 }
 
@@ -184,7 +184,7 @@ section {
     justify-content: center;
     text-align: center;
     padding: 120px 20px 60px 20px;
-    background: linear-gradient(rgba(10,10,10,0.6), rgba(10,10,10,0.9)), url('../images/park.jpg') center/cover no-repeat fixed;
+    background: linear-gradient(rgba(10,10,10,0.6), rgba(10,10,10,0.9)), url('') center/cover no-repeat fixed;
 }
 
 .hero-content {
@@ -616,7 +616,7 @@ section {
 
 .faq-master-wrapper {
     max-width: 1200px;
-    margin: 0 auto;
+    margin: 0 auto -50px;
     text-align: center;
 }
 
@@ -699,6 +699,10 @@ section {
 
 .faq-item.active .faq-trigger i {
     transform: rotate(180deg);
+}
+
+@media (min-width: 768px) {
+    .faq-master-wrapper {margin: 0 auto -70px;}
 }
 
 /* --- COMMUNITY BANNER --- */
