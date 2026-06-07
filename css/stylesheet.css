@@ -142,48 +142,39 @@ section {
     .btn { width: auto; }
 }
 
-.btn-primary {
-    background: var(--accent-red);
-    color: white;
-    box-shadow: 0 4px 15px rgba(230, 57, 70, 0.4);
-}
-
-.btn-primary:hover {
-    background: var(--accent-red-hover);
-    transform: translateY(-2px);
-}
-
-.btn-secondary {
-    background: rgba(255, 255, 255, 0.08);
-    color: white;
-    border: 1px solid var(--border-glass);
-    backdrop-filter: var(--glass-blur);
-
-}
-
-.btn-secondary:hover {
-    background: rgba(255, 255, 255, 0.15);
-    transform: translateY(-2px);
-}
-
-.btn-whatsapp {
-    background: #25D366;
-    color: white;
-    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
-}
-.btn-whatsapp:hover {
-    background: #20ba5a;
-    transform: translateY(-2px);
-}
-
+.btn-primary,
+.btn-secondary,
+.btn-whatsapp,
+.btn-insta,
 .btn-call {
-    background: #25D366;
-    color: white;
-    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 24px;              /* Flexibles Padding statt fester Breite */
+    height: 45px;                    /* Gleiche Höhe wie die Icons */
+    border-radius: 30px;             /* Abgerundete Ecken (Pillenform) */
+
+    /* STANDARD-ZUSTAND (Dunkel mit weißer Schrift) */
+    background: #1a1a1a !important;  /* Hintergrund tiefschwarz */
+    border: 1px solid #ffffff !important; /* Feiner weißer Rand (gibt Struktur auf dunklem Grund) */
+    color: #ffffff !important;       /* Weiße Schrift / Weiße Icons */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3) !important; /* Dunkler Schatten für Tiefe */
+
+    transition: all 0.3s ease;
+    text-decoration: none;           /* Falls es sich um Link-Buttons handelt */
 }
+
+/* HOVER-EFFEKT (Invertiert den Zustand beim Drüberfahren) */
+.btn-primary:hover,
+.btn-secondary:hover,
+.btn-whatsapp:hover,
+.btn-insta:hover,
 .btn-call:hover {
-    background: #20ba5a;
-    transform: translateY(-2px);
+    background: #ffffff !important;  /* Hintergrund wird weiß */
+    color: #1a1a1a !important;       /* Schrift wird dunkel */
+    border-color: #1a1a1a !important; /* Rand passt sich der Schrift an */
+    transform: translateY(-3px);     /* Leichtes Anheben */
+    box-shadow: 0 6px 20px rgba(26, 26, 26, 0.4) !important; /* Etwas stärkerer Schatten */
 }
 
 /* --- HERO SECTION --- */
@@ -558,6 +549,9 @@ section {
     display: flex;
     flex-direction: column;
     gap: 15px;
+    width: 100%;            /* Nutzt die volle Breite des Modals */
+    align-items: center;    /* Zentriert die Buttons im Mobile-Layout (Spalte) */
+    justify-content: center;
 }
 
 .modal-close {
@@ -574,7 +568,9 @@ section {
 
 @media (min-width: 768px) {
     .modal-actions {
-        flex-direction: row;
+        flex-direction: row;   /* Nebeneinander auf Desktop */
+        justify-content: center; /* Zentriert die Buttons horizontal im Desktop-Layout */
+        align-items: center;
     }
 }
 
@@ -877,11 +873,6 @@ section {
     gap: 15px;
     max-width: 500px;
     margin: 30px auto 0 auto;
-}
-
-.btn-insta {
-    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
-    color: white;
 }
 
 @media (min-width: 768px) {
