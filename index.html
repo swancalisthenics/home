@@ -10,7 +10,7 @@
     <title>Swan Calisthenics | Dein Outdoor-Training</title>
 
     <meta name="description" content="Werde Teil der Swan Calisthenics Community in Horgen. Offenes Outdoor-Training für jedes Level – von Basics bis Mastery. Train Together. Get Stronger.">
-    <meta name="author" content="Swan Calisthenics Community">
+    <meta name="author" content="Nicolas Brand">
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="./favicon/favicon-96x96.png" sizes="96x96" />
@@ -64,7 +64,7 @@
 
     <!-- ÜBER UNS -->
     <section id="about">
-        <h2 class="section-title">Über <span>Uns</span></h2>
+        <h2 class="section-title">Das sind <span>wir</span></h2>
         <div class="about-grid">
             <div class="about-card">
                 <i class="fa-solid fa-users"></i>
@@ -87,24 +87,68 @@
     <!-- CONTACT PERSONS -->
     <section id="contact-persons">
         <h2 class="section-title"><span>Kontakt</span></h2>
-        <p class="contact-persons-intro">Lerne die Köpfe hinter Swan Calisthenics kennen. Ale und Louie sind die Gründer und deine ersten Ansprechpartner für alles rund ums Training und die Community.</p>
+        <p class="contact-persons-intro">Lerne die Köpfe hinter Swan Calisthenics kennen. Alessandro und Louie sind die Gründer und deine ersten Ansprechpartner für alles rund ums Training und die Community.</p>
         <div class="contact-persons-grid">
             <div class="contact-person-card">
-                <img src="./images/ale.jpg" alt="Alessandro - Gründer von Swan Calisthenics" class="contact-person-img" loading="lazy">
+                <div class="contact-person-img-wrapper">
+                    <img src="./images/ale.jpg" alt="Alessandro - Gründer von Swan Calisthenics" class="contact-person-img" loading="lazy">
+                </div>
                 <div class="contact-person-info">
                     <h3>Alessandro</h3>
-                    <a href="https://www.instagram.com/ale.stenics/" target="_blank" class="contact-person-social"><i class="fa-brands fa-instagram"></i> @ale.stenics</a>
+                    <p class="coach-label">Coach</p>
+                    <p class="contact-person-bio">Ale ist Experte für statische Kraft-Skills und hilft dir, die perfekte Form bei den Basics zu finden.</p>
+                    <div class="contact-person-links">
+                        <a href="https://www.instagram.com/ale.stenics/" target="_blank" title="Instagram" class="icon-insta"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://wa.me/41782296060" target="_blank" title="WhatsApp" class="icon-whatsapp-direct"><i class="fa-brands fa-whatsapp"></i></a>
+                        <a href="#" title="E-Mail" class="icon-email" onclick="openEmailDialog(event, 'ale@swancalisthenics.ch')"><i class="fa-solid fa-envelope"></i></a>
+                        <a href="#" title="Telefon" class="icon-phone" onclick="openPhoneDialog(event, '+41782296060')"><i class="fa-solid fa-phone"></i></a>
+                    </div>
                 </div>
             </div>
             <div class="contact-person-card">
-                <img src="./images/louie.jpg" alt="Louie - Gründer von Swan Calisthenics" class="contact-person-img" loading="lazy">
+                <div class="contact-person-img-wrapper">
+                    <img src="./images/louie.jpg" alt="Louie - Gründer von Swan Calisthenics" class="contact-person-img" loading="lazy">
+                </div>
                 <div class="contact-person-info">
                     <h3>Louie</h3>
-                    <a href="https://www.instagram.com/louie_trainiert/" target="_blank" class="contact-person-social"><i class="fa-brands fa-instagram"></i> @louie_trainiert</a>
+                    <p class="coach-label">Coach</p>
+                    <p class="contact-person-bio">Louie liebt dynamische Bewegungen und motiviert dich, über deine mentalen Grenzen hinauszuwachsen.</p>
+                    <div class="contact-person-links">
+                        <a href="https://www.instagram.com/louie_trainiert/" target="_blank" title="Instagram" class="icon-insta"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://wa.me/41786496994" target="_blank" title="WhatsApp" class="icon-whatsapp-direct"><i class="fa-brands fa-whatsapp"></i></a>
+                        <a href="#" title="E-Mail" class="icon-email" onclick="openEmailDialog(event, 'louie@swancalisthenics.ch')"><i class="fa-solid fa-envelope"></i></a>
+                        <a href="#" title="Telefon" class="icon-phone" onclick="openPhoneDialog(event, '+41786496994')"><i class="fa-solid fa-phone"></i></a>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- PHONE DIALOG MODAL -->
+    <div id="phone-modal" class="modal-overlay">
+        <div class="modal-content">
+            <h3>Kontakt wählen</h3>
+            <p id="modal-phone-display">+41 00 000 00 00</p>
+            <div class="modal-actions">
+                <a href="#" id="modal-call-btn" class="btn btn-call"><i class="fa-solid fa-phone"></i> Anrufen</a>
+                <button onclick="copyPhoneNumber()" class="btn btn-secondary"><i class="fa-solid fa-copy"></i> Kopieren</button>
+            </div>
+            <button class="modal-close" onclick="closePhoneDialog()">&times;</button>
+        </div>
+    </div>
+
+    <!-- EMAIL DIALOG MODAL -->
+    <div id="email-modal" class="modal-overlay">
+        <div class="modal-content">
+            <h3>Nachricht senden</h3>
+            <p id="modal-email-display">info@swancalisthenics.ch</p>
+            <div class="modal-actions">
+                <a href="#" id="modal-mail-btn" class="btn btn-call"><i class="fa-solid fa-paper-plane"></i> Schreiben</a>
+                <button onclick="copyEmailAddress()" class="btn btn-secondary"><i class="fa-solid fa-copy"></i> Kopieren</button>
+            </div>
+            <button class="modal-close" onclick="closeEmailDialog()">&times;</button>
+        </div>
+    </div>
 
     <!-- UNSER TEAM -->
     <section id="team">
@@ -145,7 +189,7 @@
 
     <!-- LEVEL GUIDE -->
     <section id="levels">
-        <h2 class="section-title">Für jedes <span>Level</span></h2>
+        <h2 class="section-title">Für <span>jedes</span> Level</h2>
         <div class="level-grid">
             <div class="level-card">
                 <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=500&q=80" alt="Anfänger beim Calisthenics Training" class="level-img" loading="lazy">
