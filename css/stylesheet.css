@@ -419,15 +419,7 @@ section {
     font-size: 1.8rem;
     text-transform: uppercase;
     margin-bottom: 4px;
-}
-
-.coach-label {
     color: var(--accent-red);
-    font-weight: 800;
-    text-transform: uppercase;
-    font-size: 0.9rem;
-    letter-spacing: 2px;
-    margin-bottom: 15px;
 }
 
 .contact-person-bio {
@@ -464,7 +456,7 @@ section {
         grid-template-columns: repeat(2, 1fr);
     }
 }
-
+ 
 /* Individuelle Farben für Icons (direkt sichtbar) */
 .icon-insta {
     background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%) !important;
