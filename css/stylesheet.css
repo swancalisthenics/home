@@ -458,36 +458,45 @@ section {
 }
  
 /* Individuelle Farben für Icons (direkt sichtbar) */
-.icon-insta {
-    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%) !important;
-    border-color: transparent !important;
+/* Basis-Design für alle Social-Icons (Dunkelgrauer Kreis) */
+.contact-person-links a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;         /* Falls noch nicht definiert, für die Kreisform */
+    height: 45px;        /* Falls noch nicht definiert, für die Kreisform */
+    border-radius: 50%;
+    background: #222222 !important; /* Dunkelgrauer Hintergrund für alle Icons */
+    border: 1px solid transparent;
+    color: var(--text-gray);        /* Standardmäßig graue Symbole */
+    transition: all 0.3s ease;
 }
 
-.icon-email {
-    background: var(--accent-red) !important;
-    border-color: transparent !important;
-}
-
-.icon-phone {
-    background: #25D366 !important; /* WhatsApp Green */
-    border-color: transparent !important;
-}
-
+/* Spezifische Klassen-Überschreibungen (Bunte Hintergründe entfernt) */
+.icon-insta,
+.icon-email,
+.icon-phone,
 .icon-whatsapp-direct {
-    background: #25D366 !important;
+    background: #222222 !important;
     border-color: transparent !important;
 }
 
+/* Globaler Hover-Effekt für alle Icons (Wie auf dem Bild) */
 .contact-person-links a:hover {
-    color: white;
+    color: var(--accent-red-hover) !important;       /* Symbol wird rot */
+    border-color: var(--accent-red) !important;      /* Roter feiner Rand */
+    background: #1a1a1a !important;                  /* Leicht dunklerer Kern beim Hovern */
     transform: translateY(-3px);
-    filter: brightness(1.1);
-    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 15px rgba(230, 57, 70, 0.3);    /* Roter Glow-Effekt */
 }
 
-.icon-insta:hover { box-shadow: 0 4px 15px rgba(220, 39, 67, 0.4); }
-.icon-email:hover { box-shadow: 0 4px 15px rgba(230, 57, 70, 0.4); }
-.icon-phone:hover { box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4); }
+/* Einzelne Hover-Effekte (Zusammengefasst, da sie jetzt alle das rote Schema nutzen) */
+.icon-insta:hover,
+.icon-email:hover,
+.icon-phone:hover,
+.icon-whatsapp-direct:hover {
+    box-shadow: 0 4px 15px rgba(230, 57, 70, 0.4);
+}
 
 /* --- PHONE DIALOG MODAL --- */
 .modal-overlay {
