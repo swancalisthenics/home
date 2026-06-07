@@ -92,6 +92,7 @@ body {
     cursor: pointer;
     color: white; /* Explizit auf Weiß gesetzt */
     z-index: 1001; /* Über der Navigation */
+    margin-right: 20px; /* Kleiner Abstand rechts */
 }
 
 /* --- GLOBAL BENEFITS / LAYOUT --- */
@@ -175,6 +176,16 @@ section {
     transform: translateY(-2px);
 }
 
+.btn-call {
+    background: #25D366;
+    color: white;
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+}
+.btn-call:hover {
+    background: #20ba5a;
+    transform: translateY(-2px);
+}
+
 /* --- HERO SECTION --- */
 .hero {
     position: relative;
@@ -184,7 +195,11 @@ section {
     justify-content: center;
     text-align: center;
     padding: 120px 20px 60px 20px;
+    margin-top: 20px; /* Kleiner Abstand oben */
     background: linear-gradient(rgba(10,10,10,0.6), rgba(10,10,10,0.9)), url('../images/park.jpg') center/cover no-repeat;
+    border-radius: 30px; /* Optionale Abrundung passend zum Rest */
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
 .hero-content {
@@ -343,82 +358,209 @@ section {
 .contact-persons-intro {
     text-align: center;
     max-width: 800px;
-    margin: 0 auto 20px auto;
+    margin: 0 auto 30px auto;
     color: var(--text-gray);
 }
 
 .contact-persons-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 30px;
+    gap: 40px;
+    max-width: 900px;
+    margin: 0 auto;
 }
 
 .contact-person-card {
     background: var(--bg-card);
     border: 1px solid var(--border-glass);
     border-radius: 24px;
-    overflow: hidden;
+    padding: 30px;
     backdrop-filter: var(--glass-blur);
     text-align: center;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .contact-person-card:hover {
     transform: translateY(-5px);
+    border-color: rgba(230, 57, 70, 0.3);
+}
+
+.contact-person-img-wrapper {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-bottom: 20px;
+    border: 3px solid var(--border-glass);
+    transition: border-color 0.3s ease;
+}
+
+.contact-person-card:hover .contact-person-img-wrapper {
+    border-color: var(--accent-red);
 }
 
 .contact-person-img {
     width: 100%;
-    height: 350px;
+    height: 100%;
     object-fit: cover;
-    border-bottom: 1px solid var(--border-glass);
-}
-
-.contact-person-info {
-    padding: 25px;
 }
 
 .contact-person-info h3 {
     font-size: 1.8rem;
     text-transform: uppercase;
-    margin-bottom: 5px;
+    margin-bottom: 4px;
 }
 
-.contact-person-info p {
+.coach-label {
     color: var(--accent-red);
-    font-weight: 600;
-    margin-bottom: 15px;
+    font-weight: 800;
     text-transform: uppercase;
     font-size: 0.9rem;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+}
+
+.contact-person-bio {
+    color: var(--text-gray);
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-bottom: 25px;
+    max-width: 300px;
+}
+
+.contact-person-links {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+.contact-person-links a {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border-glass);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+}
+
+/* Individuelle Farben für Icons (direkt sichtbar) */
+.icon-insta {
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%) !important;
+    border-color: transparent !important;
+}
+
+.icon-email {
+    background: var(--accent-red) !important;
+    border-color: transparent !important;
+}
+
+.icon-phone {
+    background: #25D366 !important; /* WhatsApp Green */
+    border-color: transparent !important;
+}
+
+.icon-whatsapp-direct {
+    background: #25D366 !important;
+    border-color: transparent !important;
+}
+
+.contact-person-links a:hover {
+    color: white;
+    transform: translateY(-3px);
+    filter: brightness(1.1);
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.1);
+}
+
+.icon-insta:hover { box-shadow: 0 4px 15px rgba(220, 39, 67, 0.4); }
+.icon-email:hover { box-shadow: 0 4px 15px rgba(230, 57, 70, 0.4); }
+.icon-phone:hover { box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4); }
+
+/* --- PHONE DIALOG MODAL --- */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(8px);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+}
+
+.modal-overlay.active {
+    display: flex;
+}
+
+.modal-content {
+    background: var(--bg-card);
+    border: 1px solid var(--border-glass);
+    padding: 40px 30px;
+    border-radius: 24px;
+    max-width: 400px;
+    width: 90%;
+    text-align: center;
+    position: relative;
+    animation: modalIn 0.3s ease-out;
+}
+
+@keyframes modalIn {
+    from { transform: scale(0.9); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+.modal-content h3 {
+    text-transform: uppercase;
+    margin-bottom: 10px;
     letter-spacing: 1px;
 }
 
-.contact-person-social {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    padding: 10px 20px;
-    border-radius: 50px;
-    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
-    color: white;
-    text-decoration: none;
-    font-size: 0.9rem;
-    font-weight: 600;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+#modal-phone-display {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: var(--accent-red);
+    margin-bottom: 30px;
 }
 
-.contact-person-social:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba(220, 39, 67, 0.4);
+#modal-email-display {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--accent-red);
+    margin-bottom: 30px;
+}
+
+.modal-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.modal-close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: none;
+    border: none;
     color: white;
+    font-size: 2rem;
+    cursor: pointer;
+    line-height: 1;
 }
 
 @media (min-width: 768px) {
-    .contact-persons-grid {
-        grid-template-columns: repeat(2, 1fr);
-        max-width: 900px;
-        margin: 0 auto;
+    .modal-actions {
+        flex-direction: row;
     }
 }
 
