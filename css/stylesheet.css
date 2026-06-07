@@ -195,11 +195,18 @@ section {
     justify-content: center;
     text-align: center;
     padding: 120px 20px 60px 20px;
-    margin-top: 20px; /* Kleiner Abstand oben */
+    width: calc(100% - 20px); /* Geringer Abstand seitlich */
+    max-width: 1200px;
+    margin: 20px auto 0 auto; /* Zentriert mit Abstand oben */
     background: linear-gradient(rgba(10,10,10,0.6), rgba(10,10,10,0.9)), url('../images/park.jpg') center/cover no-repeat;
-    border-radius: 30px; /* Optionale Abrundung passend zum Rest */
-    margin-left: 10px;
-    margin-right: 10px;
+    border-radius: 30px;
+}
+
+@media (min-width: 768px) {
+    .hero {
+        width: calc(100% - 40px);
+        margin: 20px auto 0 auto;
+    }
 }
 
 .hero-content {
@@ -452,6 +459,12 @@ section {
     transition: all 0.3s ease;
 }
 
+@media (min-width: 768px) {
+    .contact-persons-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
 /* Individuelle Farben für Icons (direkt sichtbar) */
 .icon-insta {
     background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%) !important;
@@ -646,7 +659,6 @@ section {
 .times-info p:last-child { margin-bottom: 0; }
 
 @media (min-width: 768px) {
-    .times-grid { grid-template-columns: repeat(3, 1fr); }
     .time-card { flex-direction: column; text-align: center; gap: 10px; }
 }
 
@@ -1005,7 +1017,16 @@ footer {
     animation: pulse 2s infinite;
 }
 @keyframes pulse {
-    0% { transform: scale(1); opacity: 0.6; }
-    50% { transform: scale(1.05); opacity: 1; }
-    100% { transform: scale(1); opacity: 0.6; }
+    0% {
+        transform: scale(1);
+        opacity: 0.6;
+    }
+    50% {
+        transform: scale(1.05);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 0.6;
+    }
 }
