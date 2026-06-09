@@ -144,9 +144,7 @@ section {
 
 .btn-primary,
 .btn-secondary,
-.btn-whatsapp,
-.btn-insta,
-.btn-call {
+.btn-tertiary {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -164,17 +162,18 @@ section {
     text-decoration: none;           /* Falls es sich um Link-Buttons handelt */
 }
 
-/* HOVER-EFFEKT (Invertiert den Zustand beim Drüberfahren) */
+/* HOVER-EFFEKT (Invertiert den Zustand beim Drüberfahren) tertiary Quaternary Quinary*/
 .btn-primary:hover,
 .btn-secondary:hover,
-.btn-whatsapp:hover,
-.btn-insta:hover,
-.btn-call:hover {
+.btn-tertiary:hover {
     background: #ffffff !important;  /* Hintergrund wird weiß */
     color: #1a1a1a !important;       /* Schrift wird dunkel */
     border-color: #1a1a1a !important; /* Rand passt sich der Schrift an */
     transform: translateY(-3px);     /* Leichtes Anheben */
     box-shadow: 0 6px 20px rgba(26, 26, 26, 0.4) !important; /* Etwas stärkerer Schatten */
+}
+.btn-tertiary {
+    height: 70px;
 }
 
 /* --- HERO SECTION --- */
