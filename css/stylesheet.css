@@ -135,7 +135,7 @@ section {
     font-size: 0.95rem;
     border: none;
     cursor: pointer;
-    width: 100%; /* Mobile First */
+    width: 100%;
 }
 
 @media (min-width: 768px) {
@@ -148,29 +148,28 @@ section {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 12px 24px;              /* Flexibles Padding statt fester Breite */
-    height: 45px;                    /* Gleiche Höhe wie die Icons */
-    border-radius: 30px;             /* Abgerundete Ecken (Pillenform) */
+    padding: 12px 24px;
+    height: 45px;
+    border-radius: 30px;
 
-    /* STANDARD-ZUSTAND (Dunkel mit weißer Schrift) */
-    background: #1a1a1a !important;  /* Hintergrund tiefschwarz */
-    border: 1px solid #ffffff !important; /* Feiner weißer Rand (gibt Struktur auf dunklem Grund) */
-    color: #ffffff !important;       /* Weiße Schrift / Weiße Icons */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3) !important; /* Dunkler Schatten für Tiefe */
+    background: #1a1a1a !important;
+    border: 1px solid #ffffff !important;
+    color: #ffffff !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3) !important;
 
     transition: all 0.3s ease;
-    text-decoration: none;           /* Falls es sich um Link-Buttons handelt */
+    text-decoration: none;
 }
 
-/* HOVER-EFFEKT (Invertiert den Zustand beim Drüberfahren) tertiary Quaternary Quinary*/
+/* tertiary Quaternary Quinary */
 .btn-primary:hover,
 .btn-secondary:hover,
 .btn-tertiary:hover {
-    background: #ffffff !important;  /* Hintergrund wird weiß */
-    color: #1a1a1a !important;       /* Schrift wird dunkel */
-    border-color: #1a1a1a !important; /* Rand passt sich der Schrift an */
-    transform: translateY(-3px);     /* Leichtes Anheben */
-    box-shadow: 0 6px 20px rgba(26, 26, 26, 0.4) !important; /* Etwas stärkerer Schatten */
+    background: #ffffff !important;
+    color: #1a1a1a !important;
+    border-color: #1a1a1a !important;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(26, 26, 26, 0.4) !important;
 }
 .btn-tertiary {
     height: 70px;
@@ -185,9 +184,9 @@ section {
     justify-content: center;
     text-align: center;
     padding: 120px 20px 60px 20px;
-    width: calc(100% - 20px); /* Geringer Abstand seitlich */
+    width: calc(100% - 20px);
     max-width: 1200px;
-    margin: 20px auto 0 auto; /* Zentriert mit Abstand oben */
+    margin: 20px auto 0 auto;
     background: linear-gradient(rgba(10,10,10,0.6), rgba(10,10,10,0.9)), url('../images/park.jpg') center/cover no-repeat;
     border-radius: 30px;
 }
@@ -223,7 +222,7 @@ section {
 
 .hero p {
     font-size: 1.2rem;
-    color: var(--text-gray);
+    color: white;
     margin-bottom: 35px;
     font-weight: 300;
 }
@@ -269,9 +268,9 @@ section {
     justify-content: center;
     gap: 15px;
     transition: all 0.3s ease;
-    margin: 0 auto 15px auto; /* Stark reduziert */
-    width: 100%; /* Volle Breite */
-    font-size: 2.2rem; /* Gleiche Größe wie andere Titel */
+    margin: 0 auto 15px auto;
+    width: 100%;
+    font-size: 2.2rem;
     font-weight: 800;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -343,7 +342,6 @@ section {
     .about-grid { 
         grid-template-columns: repeat(2, 1fr); 
     }
-    /* Zentriert das dritte Element in der Mitte unter den ersten beiden */
     .about-card:nth-child(3) {
         grid-column: span 2;
         justify-self: center;
@@ -356,7 +354,7 @@ section {
     text-align: center;
     max-width: 800px;
     margin: 0 auto 30px auto;
-    color: var(--text-gray);
+    color: white;
 }
 
 .contact-persons-grid {
@@ -413,7 +411,7 @@ section {
 }
 
 .contact-person-bio {
-    color: var(--text-gray);
+    color: white;
     font-size: 0.95rem;
     line-height: 1.5;
     margin-bottom: 25px;
@@ -446,23 +444,20 @@ section {
         grid-template-columns: repeat(2, 1fr);
     }
 }
- 
-/* Individuelle Farben für Icons (direkt sichtbar) */
-/* Basis-Design für alle Social-Icons (Dunkelgrauer Kreis) */
+
 .contact-person-links a {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 45px;         /* Falls noch nicht definiert, für die Kreisform */
-    height: 45px;        /* Falls noch nicht definiert, für die Kreisform */
+    width: 45px;
+    height: 45px;
     border-radius: 50%;
-    background: #222222 !important; /* Dunkelgrauer Hintergrund für alle Icons */
+    background: #222222 !important;
     border: 1px solid transparent;
-    color: var(--text-gray);        /* Standardmäßig graue Symbole */
+    color: white;
     transition: all 0.3s ease;
 }
 
-/* Spezifische Klassen-Überschreibungen (Bunte Hintergründe entfernt) */
 .icon-insta,
 .icon-email,
 .icon-phone,
@@ -471,16 +466,14 @@ section {
     border-color: transparent !important;
 }
 
-/* Globaler Hover-Effekt für alle Icons (Wie auf dem Bild) */
 .contact-person-links a:hover {
-    color: var(--accent-red-hover) !important;       /* Symbol wird rot */
-    border-color: var(--accent-red) !important;      /* Roter feiner Rand */
-    background: #1a1a1a !important;                  /* Leicht dunklerer Kern beim Hovern */
+    color: var(--accent-red-hover) !important;
+    border-color: var(--accent-red) !important;
+    background: #1a1a1a !important;
     transform: translateY(-3px);
-    box-shadow: 0 4px 15px rgba(230, 57, 70, 0.3);    /* Roter Glow-Effekt */
+    box-shadow: 0 4px 15px rgba(230, 57, 70, 0.3);
 }
 
-/* Einzelne Hover-Effekte (Zusammengefasst, da sie jetzt alle das rote Schema nutzen) */
 .icon-insta:hover,
 .icon-email:hover,
 .icon-phone:hover,
@@ -548,8 +541,8 @@ section {
     display: flex;
     flex-direction: column;
     gap: 15px;
-    width: 100%;            /* Nutzt die volle Breite des Modals */
-    align-items: center;    /* Zentriert die Buttons im Mobile-Layout (Spalte) */
+    width: 100%;
+    align-items: center;
     justify-content: center;
 }
 
@@ -567,8 +560,8 @@ section {
 
 @media (min-width: 768px) {
     .modal-actions {
-        flex-direction: row;   /* Nebeneinander auf Desktop */
-        justify-content: center; /* Zentriert die Buttons horizontal im Desktop-Layout */
+        flex-direction: row;
+        justify-content: center;
         align-items: center;
     }
 }
@@ -648,7 +641,7 @@ section {
     padding: 20px;
     border-left: 4px solid var(--accent-red);
     font-size: 0.95rem;
-    color: var(--text-gray);
+    color: white;
 }
 
 .times-info p { margin-bottom: 10px; }
@@ -862,7 +855,7 @@ section {
     border-radius: 24px;
     text-align: center;
     padding: 40px 20px;
-    max-width: 1200px;      /* Verhindert, dass der Banner auf PC-Monitoren zu breit wird */
+    max-width: 1200px;
     margin: 40px 20px;
 }
 
@@ -884,7 +877,7 @@ footer {
     text-align: center;
     padding: 60px 20px;
     border-top: 1px solid var(--border-glass);
-    color: var(--text-gray);
+    color: white;
     font-size: 0.9rem;
 }
 
@@ -906,7 +899,7 @@ footer {
 }
 
 .footer-links a {
-    color: var(--text-gray);
+    color: white;
     text-decoration: none;
     transition: color 0.3s ease;
 }
@@ -941,13 +934,13 @@ footer {
 }
 
 @media (max-width: 767px) {
-    .hero h1 { font-size: 2.2rem; } /* Weiter reduziert von 2.8rem */
+    .hero h1 { font-size: 2.2rem; }
     .hero p { font-size: 1rem; }
-    .section-title { font-size: 1.6rem; } /* Weiter reduziert von 2.2rem */
+    .section-title { font-size: 1.6rem; }
     .section-master-trigger { 
-        font-size: 1.4rem; /* Etwas kleiner für einzeilige Darstellung */
+        font-size: 1.4rem;
         padding: 15px 20px;
-        flex-direction: row; /* Kein Spalten-Layout */
+        flex-direction: row;
         gap: 12px;
     }
     
@@ -976,7 +969,7 @@ footer {
         transition: left 0.4s ease;
     }
     .nav-menu.active { left: 0; }
-    .nav-menu a { font-size: 1.3rem; } /* Zurück auf original 1.3rem */
+    .nav-menu a { font-size: 1.3rem; }
     
     .about-card h3, .contact-person-info h3, .team-details h3, .level-content h3 {
         font-size: 1.2rem;
@@ -1002,7 +995,7 @@ footer {
     padding: 0 20px;
 }
 .blog-placeholder i {
-    font-size: 3.5rem; /* Reduziert von 4rem */
+    font-size: 3.5rem;
     color: var(--accent-red);
     margin-bottom: 20px;
     animation: pulse 2s infinite;
