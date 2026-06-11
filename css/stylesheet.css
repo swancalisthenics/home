@@ -535,6 +535,14 @@ section {
     font-weight: 600;
     color: var(--accent-red);
     margin-bottom: 30px;
+    overflow-wrap: break-word;
+    word-break: break-all;
+}
+
+@media (max-width: 767px) {
+    #modal-email-display {
+        font-size: 0.95rem;
+    }
 }
 
 .modal-actions {
