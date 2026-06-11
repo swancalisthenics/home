@@ -90,21 +90,21 @@ body {
     display: none;
     font-size: 1.5rem;
     cursor: pointer;
-    color: white; /* Explizit auf Weiß gesetzt */
-    z-index: 1001; /* Über der Navigation */
-    margin-right: 20px; /* Kleiner Abstand rechts */
+    color: white;
+    z-index: 1001;
+    margin-right: 20px;
 }
 
 /* --- GLOBAL BENEFITS / LAYOUT --- */
 section {
-    padding: 30px 20px; /* Kleinerer Abstand auf Mobile */
+    padding: 30px 20px;
     max-width: 1200px;
     margin: 0 auto;
 }
 
 @media (min-width: 768px) {
     section {
-        padding: 40px 20px; /* Originaler Abstand auf Desktop */
+        padding: 40px 20px;
     }
 }
 
@@ -622,8 +622,10 @@ section {
     border-radius: 16px;
     padding: 25px;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     align-items: center;
+    text-align: center;
+    gap: 10px;
 }
 
 .time-card.highlight {
@@ -656,7 +658,6 @@ section {
 .times-info p:last-child { margin-bottom: 0; }
 
 @media (min-width: 768px) {
-    .time-card { flex-direction: column; text-align: center; gap: 10px; }
 }
 
 /* --- LEVEL SECTION --- */
