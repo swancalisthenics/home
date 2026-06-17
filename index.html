@@ -39,7 +39,7 @@
             <li><a href="#contact-persons" class="nav-lnk" onclick="switchPage('home')">Kontakt</a></li>
             <li><a href="#times" class="nav-lnk" onclick="switchPage('home')">Zeiten</a></li>
             <li><a href="#location" class="nav-lnk" onclick="switchPage('home')">Standort</a></li>
-            <li><a href="#blog" class="nav-lnk" id="blog-menu-item" onclick="switchPage('blog')">Blog</a></li>
+            <li><a href="./html/blog.html" class="nav-lnk" id="blog-menu-item" onclick="switchPage('blog')">Blog</a></li>
         </ul>
     </div>
 </nav>
@@ -99,7 +99,7 @@
                     <div class="contact-person-links">
                         <a href="https://www.instagram.com/ale.stenics/" target="_blank" title="Instagram" class="icon-insta"><i class="fa-brands fa-instagram"></i></a>
                         <a href="https://wa.me/41782296060" target="_blank" title="WhatsApp" class="icon-whatsapp-direct"><i class="fa-brands fa-whatsapp"></i></a>
-                        <a href="#" title="E-Mail" class="icon-email" onclick="openEmailDialog(event, 'ale@swancalisthenics.ch')"><i class="fa-solid fa-envelope"></i></a>
+                        <a href="#" title="E-Mail" class="icon-email" onclick="openEmailDialog(event, 'alessandro.keller@gmx.ch')"><i class="fa-solid fa-envelope"></i></a>
                         <a href="#" title="Telefon" class="icon-phone" onclick="openPhoneDialog(event, '+41782296060')"><i class="fa-solid fa-phone"></i></a>
                     </div>
                 </div>
@@ -114,7 +114,7 @@
                     <div class="contact-person-links">
                         <a href="https://www.instagram.com/louie_trainiert/" target="_blank" title="Instagram" class="icon-insta"><i class="fa-brands fa-instagram"></i></a>
                         <a href="https://wa.me/41786496994" target="_blank" title="WhatsApp" class="icon-whatsapp-direct"><i class="fa-brands fa-whatsapp"></i></a>
-                        <a href="#" title="E-Mail" class="icon-email" onclick="openEmailDialog(event, 'louie@swancalisthenics.ch')"><i class="fa-solid fa-envelope"></i></a>
+                        <!-- <a href="#" title="E-Mail" class="icon-email" onclick="openEmailDialog(event, 'louie@swancalisthenics.ch')"><i class="fa-solid fa-envelope"></i></a> -->
                         <a href="#" title="Telefon" class="icon-phone" onclick="openPhoneDialog(event, '+41786496994')"><i class="fa-solid fa-phone"></i></a>
                     </div>
                 </div>
@@ -167,7 +167,7 @@
         <h2 class="section-title">Community <span>Workouts</span></h2>
         <div class="times-grid">
             <div class="time-card highlight">
-                <div class="day-name">Sonntag</div>
+                <div class="day-name">Jeden Sonntag <br> ab dem 5.7.2026</div>
                 <div class="time-hours">18:00 - 20:00</div>
             </div>
         </div>
@@ -282,42 +282,17 @@
 
 </div>
 
-<!-- --- SEPARATE BLOG PAGE --- -->
-<div id="blog-page" class="page">
-    <section class="blog-placeholder">
-        <i class="fa-solid fa-feather-pointed"></i>
-        <h2 class="section-title">Unser <span>Blog</span></h2>
-        <p style="color: white; font-size: 1.2rem;">Hier findest du bald nützliche Tipps zu Training, Ernährung und Calisthenics-Skills.</p>
-        <div style="margin-top: 30px; width: 100%; max-width: 250px;">
-            <a href="#" class="btn btn-tertiary" onclick="switchPage('home')"><i class="fa-solid fa-arrow-left"></i> Zur Startseite</a>
-        </div>
-    </section>
-</div>
-
 <!-- FOOTER -->
 <footer>
     <div class="footer-content">
         <p>&copy; 2026 Swan Calisthenics Community</p>
+        <p style="font-size: 0.8rem; opacity: 0.7; margin-top: 5px;">Erstellt von Nicolas Brand</p>
         <ul class="footer-links">
-            <li><a href="#" onclick="switchPage('legal')">Rechtliches</a></li>
-            <li><a href="#" onclick="switchPage('legal')">Datenschutz</a></li>
-            <li><a href="#" onclick="switchPage('legal')">Cookie-Einstellungen</a></li>
-            <li><a href="#" onclick="switchPage('legal')">Impressum</a></li>
+            <li><a href="./html/support.html">Anfragen & Support</a></li>
+            <li><a href="html/datenschutz_impressum.html">Datenschutz & Impressum</a></li>
         </ul>
     </div>
 </footer>
-
-<!-- --- SEPARATE LEGAL PAGE --- -->
-<div id="legal-page" class="page">
-    <section class="blog-placeholder">
-        <i class="fa-solid fa-scale-balanced"></i>
-        <h2 class="section-title">Rechtliche <span>Informationen</span></h2>
-        <p style="color: white; font-size: 1.2rem;">Hier findest du bald Impressum, Datenschutz und rechtliche Hinweise.</p>
-        <div style="margin-top: 30px; width: 100%; max-width: 250px;">
-            <a href="#" class="btn btn-tertiary" onclick="switchPage('home')"><i class="fa-solid fa-arrow-left"></i> Zur Startseite</a>
-        </div>
-    </section>
-</div>
 
 <!-- BACK TO TOP BUTTON -->
 <a href="#" class="back-to-top" id="backToTop"><i class="fa-solid fa-arrow-up"></i></a>

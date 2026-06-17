@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Google Fonts & FontAwesome Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <title>Swan Calisthenics | Dein Outdoor-Training</title>
+
+    <meta name="description" content="Werde Teil der Swan Calisthenics Community in Horgen. Offenes Outdoor-Training für jedes Level – von Basics bis Mastery. Train Together. Get Stronger.">
+    <meta name="author" content="Nicolas Brand">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="../favicon/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="../favicon/favicon.svg" />
+    <link rel="shortcut icon" href="../favicon/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="../favicon/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="SwCali" />
+    <link rel="manifest" href="../favicon/site.webmanifest" />
+    <link rel="stylesheet" href="../css/stylesheet.css">
+</head>
+<body>
+<!-- NAVIGATION -->
+<nav class="navbar">
+    <div class="nav-container">
+        <a href="../index.html" class="nav-logo" onclick="switchPage('home')">
+            <img src="../images/logo.png" alt="Swan Calisthenics Logo">
+            <span>Swan Calisthenics</span>
+        </a>
+        <div class="menu-toggle" id="mobile-menu-btn">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+        <ul class="nav-menu" id="nav-links">
+            <li><a href="../index.html#home" class="nav-lnk active" onclick="switchPage('home')">Home</a></li>
+            <li><a href="../index.html#about" class="nav-lnk" onclick="switchPage('home')">Über uns</a></li>
+            <li><a href="../index.html#contact-persons" class="nav-lnk" onclick="switchPage('home')">Kontakt</a></li>
+            <li><a href="../index.html#times" class="nav-lnk" onclick="switchPage('home')">Zeiten</a></li>
+            <li><a href="../index.html#location" class="nav-lnk" onclick="switchPage('home')">Standort</a></li>
+            <li><a href="../html/blog.html" class="nav-lnk" id="blog-menu-item">Blog</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- --- SEPARATE LEGAL PAGE --- -->
+<div id="legal-page">
+    <div class="legal-container">
+        <h2 class="section-title">Rechtliche <span>Informationen</span></h2>
+
+        <!-- ================= IMPRESSUM ================= -->
+        <h1>Impressum</h1>
+        <p>
+            <strong>Swan Calisthenics Community</strong><br>
+            Strasse 67<br>
+            8810 Horgen<br>
+            E-Mail: <a href="mailto:alessandro.keller@gmx.ch">alessandro.keller@gmx.ch</a>
+        </p>
+        <p><em>Vertretungsberechtigte Personen:</em> Alessandro Fabian Keller (Communitygründer)</p>
+
+        <hr>
+
+        <!-- ================= DATENSCHUTZEREKLÄRUNG ================= -->
+        <h1>Datenschutzerklärung</h1>
+
+        <h2>1. Verantwortliche Stelle</h2>
+        <p>Verantwortlich für die Datenverarbeitung auf dieser Website ist der oben im Impressum genannte Community.</p>
+
+        <h2>2. Hosting über GitHub Pages (Datenübertragung)</h2>
+        <p>Unsere Website wird als statische Seite über den Dienst „GitHub Pages“ der Firma GitHub Inc. (88 Colin P. Kelly Jr. St, San Francisco, CA 94107, USA) gehostet und bereitgestellt.</p>
+        <p>Wenn Sie unsere Website aufrufen, stellt Ihr Browser eine Verbindung zu den Servern von GitHub her. GitHub erhebt dabei automatisch Protokolldaten (sogenannte Server-Logfiles). Dazu gehören:</p>
+        <ul>
+            <li>IP-Adresse des zugreifenden Geräts</li>
+            <li>Datum und Uhrzeit des Abrufs</li>
+            <li>Übertragene Datenmenge und Name der abgerufenen Datei</li>
+            <li>Browsertyp und Version sowie das Betriebssystem Ihres Geräts</li>
+            <li>Referrer-URL (die zuvor besuchte Seite)</li>
+        </ul>
+        <p>
+            Zweck dieser Verarbeitung ist die sichere, stabile und fehlerfreie Bereitstellung unserer Vereinswebsite.
+            GitHub speichert diese Daten aus Sicherheitsgründen.
+            Die Datenverarbeitung steht im Einklang mit dem Schweizer Datenschutzgesetz (DSG).
+            Weitere Informationen finden Sie in der
+            <a href="https://docs.github.com/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener">
+                Allgemeinen Datenschutzerklärung von GitHub
+            </a> sowie in den spezifischen Hinweisen zur
+            <a href="https://docs.github.com/pages/getting-started-with-github-pages/about-github-pages#data-collection" target="_blank" rel="noopener">
+                Datenerhebung bei GitHub Pages
+            </a>.
+        </p>
+
+        <h2>3. Cookies, Tracking und Registrierung</h2>
+        <p>
+            Diese Website dient ausschliesslich der Information über unsere Community.
+            Wir betreiben kein Backend, nutzen keine Cookies und verwenden keine Webanalyse- oder Tracking-Tools (wie Google Analytics).
+            Es gibt keine Registrierungs-, Login- oder Kontaktformulare. Es werden von uns keine personenbezogenen Daten aktiv abgefragt oder gespeichert.
+        </p>
+        <p>
+            Auf unserer Website veröffentlichen wir Bildmaterial von Communityaktivitäten und den Communitygründern.
+            Dies geschieht auf Grundlage des berechtigten Interesses der Community an der Öffentlichkeitsarbeit sowie mit dem Einverständnis der abgebildeten Personen.
+            Sollten Sie mit der Veröffentlichung eines Bildes, auf dem Sie erkennbar sind, nicht einverstanden sein,
+            genügt eine kurze Mitteilung an die oben genannte E-Mail-Adresse, und wir werden das Bild umgehend entfernen.
+        </p>
+        <p>
+            Die Verweise auf soziale Netzwerke (z. B. LinkedIn, Instagram) sind als rein statische Verlinkungen ausgestaltet.
+            Das bedeutet: Beim reinen Besuch unserer Website werden keinerlei Daten an diese externen Plattformen übertragen.
+            Erst wenn Sie aktiv auf einen solchen Link klicken, verlassen Sie unsere Website und werden auf die Plattform des jeweiligen Anbieters weitergeleitet.
+            Ab diesem Zeitpunkt gelten die Datenschutzbestimmungen der jeweiligen Plattform.
+        </p>
+
+        <h2>4. Ihre Rechte</h2>
+        <p>Sie haben nach dem Schweizer Datenschutzgesetz das Recht auf unentgeltliche Auskunft über
+            Ihre verarbeiteten Daten sowie ein Recht auf Berichtigung oder Löschung,
+            soweit dem keine gesetzlichen Aufbewahrungspflichten entgegenstehen.
+            Bei Fragen dazu können Sie uns jederzeit über die oben genannte E-Mail-Adresse kontaktieren.
+        </p>
+
+        <div class="legal-back-btn">
+            <a href="../index.html" class="btn btn-tertiary"><i class="fa-solid fa-arrow-left"></i> Zur Startseite</a>
+        </div>
+    </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+    <div class="footer-content">
+        <p>&copy; 2026 Swan Calisthenics Community</p>
+        <p style="font-size: 0.8rem; opacity: 0.7; margin-top: 5px;">Erstellt von Nicolas Brand</p>
+        <ul class="footer-links">
+            <li><a href="support.html">Anfragen & Support</a></li>
+            <li><a href="datenschutz_impressum.html">Datenschutz & Impressum</a></li>
+        </ul>
+    </div>
+</footer>
+<script src="../lib/main.js"></script>
+</body>
+</html>
