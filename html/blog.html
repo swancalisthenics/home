@@ -51,21 +51,25 @@
     </div>
 </header>
 
-<!-- BLOG CONTENT -->
+<div class="filter-container" style="text-align: center; margin: 30px 0;">
+    <button class="btn btn-primary filter-btn active" data-filter="all">Alle</button>
+    <button class="btn btn-primary filter-btn" data-filter="ernaehrung">Ernährung & Gesundheit</button>
+    <button class="btn btn-primary filter-btn" data-filter="uebungen">Übungen & Kraftaufbau</button>
+</div>
+
 <main class="blog-container">
     <div class="blog-grid">
-        <!-- FIRST EXAMPLE BLOG POST -->
-        <article class="blog-card" onclick="window.location.href='post-basics.html';" style="cursor: pointer;">
-            <img src="../images/ale.jpg" alt="Calisthenics Basics" class="blog-card-img">
+        <article class="blog-card" data-category="uebungen" onclick="window.location.href='post-basics.html';" style="cursor: pointer;">
+            <img src="../images/park.jpg" alt="Calisthenics Basics" class="blog-card-img">
             <div class="blog-card-content">
-                <span class="blog-category">Training</span>
+                <span class="blog-category">Übungen & Kraftaufbau</span>
                 <h2 class="blog-card-title">Die 5 wichtigsten Basics für Calisthenics-Anfänger</h2>
                 <div class="blog-card-meta">
                     <span><i class="fa-solid fa-calendar-days"></i> 12. Juni 2026</span>
-                    <span><i class="fa-solid fa-user"></i> Alessandro Keller</span>
+                    <span><i class="fa-solid fa-user"></i> Nicolas Brand</span>
                 </div>
                 <p class="blog-card-excerpt">
-                    Egal ob du den Muscle-Up oder die Human Flag lernen willst: Ohne die richtigen Grundlagen wirst du stagnieren. Wir zeigen dir die 5 Übungen, die jeder beherrschen muss.
+                    Egal ob du den Muscle-Up oder die Human Flag lernen willst: Ohne die richtigen Grundlagen wird es schwierig. Ich zeige dir die 5 Übungen, die jeder beherrschen sollte.
                 </p>
                 <div class="blog-card-footer">
                     <a href="post-basics.html" class="btn btn-primary">Mehr lesen <i class="fa-solid fa-arrow-right"></i></a>
@@ -73,13 +77,12 @@
             </div>
         </article>
 
-        <!-- PLACEHOLDER FOR NEXT POSTS -->
-        <article class="blog-card" style="opacity: 0.5;">
+        <article class="blog-card" data-category="ernaehrung" style="opacity: 0.5;">
             <div style="height: 220px; background: #222; display: flex; align-items: center; justify-content: center;">
                 <i class="fa-solid fa-lock" style="font-size: 3rem; color: #444;"></i>
             </div>
             <div class="blog-card-content">
-                <span class="blog-category" style="background: rgba(255,255,255,0.05); color: #888;">Coming Soon</span>
+                <span class="blog-category" style="background: rgba(255,255,255,0.05); color: #888;">Ernährung & Gesundheit</span>
                 <h2 class="blog-card-title">Ernährung für maximalen Kraftaufbau</h2>
                 <div class="blog-card-meta">
                     <span><i class="fa-solid fa-calendar-days"></i> Juni 2026</span>
