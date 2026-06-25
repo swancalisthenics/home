@@ -26,12 +26,18 @@ C:\Users\nicol\IdeaProjects\home\
 ├── README.md                   # Das originale, studentische README mit Anforderungen & TODOs
 ├── readmeKI.md                 # Diese KI-Dokumentation (Struktur, Richtlinien & Code-Architektur)
 ├── css/
-│   └── stylesheet.css          # Zentrales Stylesheet (Layouts, Variablen, responsive Breakpoints)
+│   ├── blog.css               
+│   ├── blog-post.css          # Design für posts
+│   ├── support.css
+│   ├── datenschutz_impressum.css  
+│   ├── global.css             # Zentrales Globales Stylesheet
+│   ├── index.css
+│   └── support.css
 ├── html/                       # Unterseiten und Blog-Inhalte
 │   ├── blog.html               # Übersicht aller Blog-Artikel inkl. Filterfunktionen
 │   ├── post-basics.html        # Detailansicht für den Calisthenics-Grundlagen-Artikel
 │   ├── support.html            # Anfragen- & Kontaktformular sowie Team-Vorstellungen
-│   └── impressum.html          # Rechtlich gefordertes Impressum
+│   └── datenschutz_impressum.css          # Rechtlich gefordertes Impressum
 ├── images/                     # Bildressourcen und Team-Fotos (Alessandro, Louie, Nicolas etc.)
 ├── favicon/                    # Plattformübergreifende Favicons und Web-App-Manifest
 └── lib/

@@ -1,0 +1,92 @@
+/* --- LEGAL PAGE STYLES --- */
+.legal-container {
+    max-width: 900px;
+    margin: 100px auto 60px;
+    padding: 40px;
+    background: var(--bg-card);
+    border: 1px solid var(--border-glass);
+    border-radius: 24px;
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+}
+
+.legal-container h1 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    color: var(--accent-red);
+    overflow-wrap: break-word;
+    hyphens: auto;
+}
+
+.legal-container h2 {
+    font-size: 1.5rem;
+    margin: 40px 0 20px;
+    text-transform: uppercase;
+    border-bottom: 1px solid var(--border-glass);
+    padding-bottom: 10px;
+    overflow-wrap: break-word;
+    hyphens: auto;
+}
+
+.legal-container p {
+    margin-bottom: 20px;
+    color: var(--text-light);
+    line-height: 1.8;
+}
+
+.legal-container ul {
+    margin: 0 0 20px 20px;
+    color: var(--text-gray);
+}
+
+.legal-container li {
+    margin-bottom: 10px;
+}
+
+.legal-container hr {
+    border: 0;
+    height: 1px;
+    background: var(--border-glass);
+    margin: 50px 0;
+}
+
+.legal-container a {
+    color: var(--accent-red);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.legal-container a:hover {
+    color: var(--accent-red-hover);
+    text-decoration: underline;
+}
+
+.legal-back-btn {
+    margin-top: 40px;
+}
+
+@media (max-width: 767px) {
+    .legal-container {
+        margin: 80px 15px 40px;
+        padding: 25px;
+    }
+    .legal-container h1 {
+        font-size: 1.6rem;
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 0.6;
+    }
+    50% {
+        transform: scale(1.05);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 0.6;
+    }
+}
