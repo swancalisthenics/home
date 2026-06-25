@@ -117,7 +117,7 @@ section {
     letter-spacing: 1px;
 }
 
-.section-title span {
+.section-title span, .footer-links span {
     color: var(--accent-red);
 }
 

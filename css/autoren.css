@@ -1,0 +1,234 @@
+/* --- CONTACT PERSONS SECTION --- */
+.section-title {
+    margin-top: 100px;
+}
+.contact-persons-intro {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 30px auto;
+    color: white;
+}
+
+.contact-persons-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.contact-person-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-glass);
+    border-radius: 24px;
+    padding: 30px;
+    backdrop-filter: var(--glass-blur);
+    text-align: center;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contact-person-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(230, 57, 70, 0.3);
+}
+
+.contact-person-img-wrapper {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-bottom: 20px;
+    border: 3px solid var(--border-glass);
+    transition: border-color 0.3s ease;
+}
+
+.contact-person-card:hover .contact-person-img-wrapper {
+    border-color: var(--accent-red);
+}
+
+.contact-person-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.contact-person-info h3 {
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+    color: var(--accent-red);
+}
+
+.contact-person-bio {
+    color: white;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-bottom: 25px;
+    max-width: 300px;
+}
+
+.contact-person-links {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+.contact-person-links a {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border-glass);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+}
+
+@media (min-width: 768px) {
+    .contact-persons-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1200px) {
+    .contact-persons-grid {
+        grid-template-columns: repeat(3, 1fr);
+        max-width: 4000px;
+    }
+}
+
+.contact-person-links a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: #222222 !important;
+    border: 1px solid transparent;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.icon-insta,
+.icon-email,
+.icon-phone,
+.icon-whatsapp-direct {
+    background: #222222 !important;
+    border-color: transparent !important;
+}
+
+.contact-person-links a:hover {
+    color: var(--accent-red-hover) !important;
+    border-color: var(--accent-red) !important;
+    background: #1a1a1a !important;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 15px rgba(230, 57, 70, 0.3);
+}
+
+.icon-insta:hover,
+.icon-email:hover,
+.icon-phone:hover,
+.icon-whatsapp-direct:hover {
+    box-shadow: 0 4px 15px rgba(230, 57, 70, 0.4);
+}
+
+/* --- PHONE DIALOG MODAL --- */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(8px);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+}
+
+.modal-overlay.active {
+    display: flex;
+}
+
+.modal-content {
+    background: var(--bg-card);
+    border: 1px solid var(--border-glass);
+    padding: 40px 30px;
+    border-radius: 24px;
+    max-width: 400px;
+    width: 90%;
+    text-align: center;
+    position: relative;
+    animation: modalIn 0.3s ease-out;
+}
+
+@keyframes modalIn {
+    from { transform: scale(0.9); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+.modal-content h3 {
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+}
+
+#modal-phone-display {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: var(--accent-red);
+    margin-bottom: 30px;
+}
+
+#modal-email-display {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--accent-red);
+    margin-bottom: 30px;
+    overflow-wrap: break-word;
+    word-break: break-all;
+}
+
+@media (max-width: 767px) {
+    #modal-email-display {
+        font-size: 0.95rem;
+    }
+}
+
+.modal-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+    line-height: 1;
+}
+
+@media (min-width: 768px) {
+    .modal-actions {
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+}
