@@ -23,13 +23,17 @@
     height: 28px !important;
     display: inline-block;
     vertical-align: middle;
+    flex-shrink: 0;
 }
 
-.custom-icon-big {
-    width: 40px !important;
-    height: 40px !important;
-    display: inline-block;
-    vertical-align: middle;
+.big {
+    width: 50px !important;
+    height: 50px !important;
+}
+
+.small {
+    width: 23px !important;
+    height: 23px !important;
 }
 
 .redspan {
@@ -174,6 +178,7 @@ section {
 
     transition: all 0.3s ease;
     text-decoration: none;
+    white-space: nowrap;
 }
 
 /* tertiary Quaternary Quinary */
