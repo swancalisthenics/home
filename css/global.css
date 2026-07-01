@@ -17,6 +17,21 @@
     scroll-behavior: smooth;
     -webkit-tap-highlight-color: transparent;
 }
+
+.custom-icon {
+    width: 28px !important;
+    height: 28px !important;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.custom-icon-big {
+    width: 40px !important;
+    height: 40px !important;
+    display: inline-block;
+    vertical-align: middle;
+}
+
 .redspan {
     color: var(--accent-red);
 }
