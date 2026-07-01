@@ -5,6 +5,7 @@
 1.0 Hosting
 2.0 KI Dokumentation
 3.0 TODO
+4.0 Planung
 ```
 
 ## 1.0 Hosting
@@ -17,6 +18,7 @@ Die Blog Page: https://swancalisthenics.github.io/home/html/blog.html
 ## 3.0 TODO
 Bilder Von Community Events nach rechts erweiterbar durch scrollen
 Grösstes Bild für Handy kleiner machen.
+
 *Startseite* mit den neusten Artikeln. Übersicht über
 alle Themen z.B. Ernährung & Gesundheit, Übungen & Kraftaufbau.
 
@@ -50,3 +52,10 @@ Mindestens 10 Artikel inkl. Text, Bilder, Videos und Autor (Kuratiert)
 Wireframes für Mobile, Tablet und Desktop (Git, Markdown)
 Styleguide mit Typografie und Farben (Git, Markdown)
 Dokumentation des KI-Einsatzes (Git, Markdown)
+
+## 4.0 Planung
+
+### Wireframe
+
+### Styleguide
+Schriftart, Farbe
