@@ -16,6 +16,7 @@ Die Blog Page: https://swancalisthenics.github.io/home/html/blog.html
 
 ## 3.0 TODO
 Bilder Von Community Events nach rechts erweiterbar durch scrollen
+Grösstes Bild für Handy kleiner machen.
 *Startseite* mit den neusten Artikeln. Übersicht über
 alle Themen z.B. Ernährung & Gesundheit, Übungen & Kraftaufbau.
 
