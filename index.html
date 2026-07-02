@@ -29,16 +29,15 @@
             <span>Swan Calisthenics</span>
         </a>
         <div class="menu-toggle" id="mobile-menu-btn">
-            <i class="fa-solid fa-bars"></i>
+            <img src="images/icons/bars-solid-full.svg" alt="Standort" class="custom-icon">
         </div>
         <ul class="nav-menu" id="nav-links">
             <li><a href="#home" class="nav-lnk" onclick="switchPage('home')">Home</a></li>
             <li><a href="#about" class="nav-lnk" onclick="switchPage('home')">Über uns</a></li>
-            <li><a href="#contact-persons" class="nav-lnk" onclick="switchPage('home')">Gründer</a></li>
             <li><a href="#times" class="nav-lnk" onclick="switchPage('home')">Zeiten</a></li>
             <li><a href="#location" class="nav-lnk" onclick="switchPage('home')">Standort</a></li>
             <li><a href="./html/blog.html" class="nav-lnk">Blog</a></li>
-            <li><a href="html/vorstand.html" class="nav-lnk">Vorstand</a></li>
+            <li><a href="html/vorstand.html" class="nav-lnk">Team</a></li>
             <li><a href="./html/kontakt.html" class="nav-lnk">Kontakt</a></li>
         </ul>
     </div>
@@ -83,84 +82,6 @@
             </div>
         </div>
     </section>
-
-    <!-- CONTACT PERSONS -->
-    <section id="contact-persons">
-        <h2 class="section-title"><span>Gründer</span></h2>
-        <p class="contact-persons-intro">Lerne die Köpfe hinter Swan Calisthenics kennen. Alessandro und Louie sind die Gründer und deine ersten Ansprechpartner für alles rund ums Training und die Community.</p>
-        <div class="contact-persons-grid">
-            <div class="contact-person-card">
-                <div class="contact-person-img-wrapper">
-                    <img src="./images/ale.jpg" alt="Alessandro - Gründer von Swan Calisthenics" class="contact-person-img" loading="lazy">
-                </div>
-                <div class="contact-person-info">
-                    <h3>Alessandro</h3>
-                    <p class="contact-person-bio">Ale ist Experte für statische Kraft-Skills. Er vermittelt dir nicht nur die perfekten Basics, sondern steckt dich mit seiner tiefen Passion für den Sport an, um das Maximum aus dir herauszuholen.</p>
-                    <div class="contact-person-links">
-                        <a href="https://www.instagram.com/ale.stenics/" target="_blank" title="Instagram" class="icon-insta">
-                            <img src="images/icons/instagram.svg" alt="Instagram" class="custom-icon">
-                        </a>
-                        <a href="https://wa.me/41782296060" target="_blank" title="WhatsApp" class="icon-whatsapp-direct">
-                            <img src="images/icons/whatsapp.svg" alt="WhatsApp" class="custom-icon">
-                        </a>
-                        <a href="#" title="Telefon" class="icon-phone" onclick="openEmailDialog(event, 'alessandro.keller@gmx.ch')">
-                            <img src="images/icons/envelope.svg" alt="Mail" class="custom-icon">
-                        </a>
-                        <a href="#" title="Telefon" class="icon-phone" onclick="openPhoneDialog(event, '+41782296060')">
-                            <img src="images/icons/phone.svg" alt="Telefon" class="custom-icon">
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="contact-person-card">
-                <div class="contact-person-img-wrapper">
-                    <img src="./images/louie.jpg" alt="Louie - Gründer von Swan Calisthenics" class="contact-person-img" loading="lazy">
-                </div>
-                <div class="contact-person-info">
-                    <h3>Louie</h3>
-                    <p class="contact-person-bio">Louie lebt für Calisthenics. Seine Stärken liegen in Kraftausdauer und Weighted Calisthenics. Mit Disziplin, Fokus und harter Arbeit zeigt er dir, dass echte Stärke im Kopf beginnt. <br> <br></p>
-                    <div class="contact-person-links">
-                        <a href="https://www.instagram.com/louie_trainiert/" target="_blank" title="Instagram" class="icon-insta">
-                            <img src="images/icons/instagram.svg" alt="Instagram" class="custom-icon">
-                        </a>
-                        <a href="https://wa.me/41786496994" target="_blank" title="WhatsApp" class="icon-whatsapp-direct">
-                            <img src="images/icons/whatsapp.svg" alt="WhatsApp" class="custom-icon">
-                        </a>
-                        <!-- <a href="#" title="E-Mail" class="icon-email" onclick="openEmailDialog(event, 'louie@swancalisthenics.ch')"><i class="fa-solid fa-envelope"></i></a> -->
-                        <a href="#" title="Telefon" class="icon-phone" onclick="openPhoneDialog(event, '+41786496994')">
-                            <img src="images/icons/phone.svg" alt="Telefon" class="custom-icon">
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- PHONE DIALOG MODAL -->
-    <div id="phone-modal" class="modal-overlay">
-        <div class="modal-content">
-            <h3>Kontakt wählen</h3>
-            <p id="modal-phone-display">+41 00 000 00 00</p>
-            <div class="modal-actions">
-                <a href="#" id="modal-call-btn" class="btn btn-primary"><i class="fa-solid fa-phone"></i> Anrufen</a>
-                <button onclick="copyPhoneNumber()" class="btn btn-secondary"><i class="fa-solid fa-copy"></i> Kopieren</button>
-            </div>
-            <button class="modal-close" onclick="closePhoneDialog()">&times;</button>
-        </div>
-    </div>
-
-    <!-- EMAIL DIALOG MODAL -->
-    <div id="email-modal" class="modal-overlay">
-        <div class="modal-content">
-            <h3>Nachricht senden</h3>
-            <p id="modal-email-display">info@swancalisthenics.ch</p>
-            <div class="modal-actions">
-                <a href="#" id="modal-mail-btn" class="btn btn-primary"><i class="fa-solid fa-paper-plane"></i> Schreiben</a>
-                <button onclick="copyEmailAddress()" class="btn btn-secondary"><i class="fa-solid fa-copy"></i> Kopieren</button>
-            </div>
-            <button class="modal-close" onclick="closeEmailDialog()">&times;</button>
-        </div>
-    </div>
 
     <!-- UNSER TEAM -->
     <section id="team">
