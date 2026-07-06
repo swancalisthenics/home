@@ -97,13 +97,6 @@
     }
 }
 
-@media (min-width: 1200px) {
-    .contact-persons-grid {
-        grid-template-columns: repeat(3, 1fr);
-        max-width: 4000px;
-    }
-}
-
 .contact-person-links a {
     display: inline-flex;
     align-items: center;
