@@ -1,10 +1,4 @@
 /* --- BLOG POST DETAIL --- */
-.post-header {
-    padding: 140px 20px 80px;
-    text-align: center;
-    background: linear-gradient(rgba(10,10,10,0.7), rgba(10,10,10,0.9)), url('../images/park.jpg') center/cover no-repeat;
-}
-
 .post-container {
     max-width: 800px;
     margin: -50px auto 80px;
@@ -87,4 +81,28 @@
         font-size: 1.1rem;
         margin: 25px 0;
     }
+}
+
+.post-image-gallery {
+    display: flex;
+    gap: 15px;
+    margin: 30px 0;
+}
+
+.post-image-gallery img {
+    flex: 1;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 20px;
+    margin: 0;
+}
+@media (max-width: 767px) {
+    .post-image-gallery img {
+        border-radius: 10px;
+    }
+}
+
+.post-content ol li {
+    color: #ffffff;
 }
