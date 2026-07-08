@@ -103,6 +103,6 @@
     }
 }
 
-.post-content ol li {
+.post-content ol li, .post-content ul li {
     color: #ffffff;
 }
