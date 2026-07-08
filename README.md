@@ -22,17 +22,10 @@ alle Themen z.B. Ernährung & Gesundheit, Übungen & Kraftaufbau.
 Zu jedem Artikel soll Autor mit Foto genannt werden.
 Themen soll man filtern können.
 
-Die Autoren sollen Verlinkt sein auf eine Kontakt seite.
-Und eine Kontaktformular seite rund um fragen zum blog.
-Über ein Dropdown im Formular sollen verschiedene Betreffzeilen 
-ausgewählt werden können, damit das E-Mail-Programm die Fragen 
-später automatisch zuordnen kann.
-
 ### 3.1 Funktionen
 Startseite mit neuen oder beliebten Artikeln, Themen und Newsletter-Anmeldung
 Artikelübersicht mit Themenfilter
 Detailseite mit Artikel, Bild, Video, Autor:in und Thema
-Kontaktformular mit Betreffauswahl
 
 ### 3.2 Anforderungen
 100% eigener HTML- und CSS-Code (KI erlaubt, Frameworks nicht)
