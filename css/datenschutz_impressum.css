@@ -90,3 +90,8 @@
         opacity: 0.6;
     }
 }
+
+.legal-container ul {
+    color: #ffffff;
+    list-style-color: #ffffff;
+}
