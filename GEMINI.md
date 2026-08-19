@@ -10,7 +10,7 @@ Willkommen im offiziellen **KI-README (`readmeKI.md`)** für das Projekt **Swan 
 
 ### 🌐 Live-Links
 * **Startseite des Projekts:** [https://swancalisthenics.github.io/home/](https://swancalisthenics.github.io/home/)
-* **Calisthenics Blog:** [https://swancalisthenics.github.io/home/html/blog.html](https://swancalisthenics.github.io/home/html/blog.html)
+* **Calisthenics Blog:** [https://swancalisthenics.github.io/home/html/blog/blog.html](https://swancalisthenics.github.io/home/html/blog/blog.html)
 
 ---
 
@@ -87,10 +87,17 @@ Wenn du als KI an diesem Projekt arbeitest (z.B. um neue Features hinzuzufügen 
 
 ### 🛠️ Anleitung zur Erweiterung des Codes
 
-#### 1. Einen neuen Blog-Artikel hinzufügen:
-1. Erstelle eine neue Datei in `/html/` (z.B. `post-nutrition.html`), basierend auf der Struktur von `post-basics.html`.
-2. Verlinke den neuen Artikel in der Grid-Übersicht von `html/blog.html`.
-3. Weise dem Artikel die passenden Filter-Klassen im Blog-Grid zu, damit die Javascript-Filterung einwandfrei funktioniert.
+#### 1. Einen neuen Blog-Artikel hinzufügen (aktueller Stand):
+Der Blog ist seit der Umstellung auf ein dynamisches System **daten-basiert** —
+es wird keine neue HTML-Datei mehr pro Artikel angelegt. Stattdessen:
+1. Ein neues Objekt zum Array `BLOG_POSTS` in `lib/blog-posts-data.js`
+   hinzufügen (Schema siehe Kommentare/bestehende Einträge dort).
+2. `filterCategory` auf `'uebungen'` oder `'ernaehrung'` setzen, damit die
+   Kategorie-Filter-Buttons auf `html/blog/blog.html` greifen.
+3. Fertig — sowohl die Übersichtskarte (`html/blog/blog.html`) als auch die
+   Detailseite (`html/blog/blog-post.html?id=<neue-id>`) rendern sich daraus
+   automatisch, siehe `lib/blog.js`. Details: `CLAUDE.md`, Abschnitt
+   „Dynamisches Blog-System".
 
 #### 2. Javascript-Interaktionen erweitern (`lib/main.js`):
 * Halte das Javascript modular und sauber dokumentiert.
