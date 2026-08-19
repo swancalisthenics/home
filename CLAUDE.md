@@ -51,10 +51,15 @@ home/
 └── fonts/                       Lokal gehostete Google Fonts (Inter, Libre Baskerville)
 ```
 
-**Hinweis Bildgrößen:** Mehrere eingebundene Bilder sind unkomprimiert sehr groß
-(z. B. `images/nicolas.png` ~25 MB, `images/team.jpg` ~3 MB, mehrere `images/blogs/*.jpg`
-im MB-Bereich). Bild-Optimierung war in dieser Aufräum-Session bewusst außerhalb
-des Scopes — siehe „Bekannte Probleme".
+**Bildgrößen:** Alle aktuell verwendeten Fotos wurden auf max. 1920 px
+Kantenlänge verkleinert und als JPEG (Qualität 85) neu gespeichert (~54 MB
+eingespart, größter Einzelfall: `nicolas.png` 25 MB → `nicolas.jpg` 0.5 MB —
+war als Foto verlustfrei in PNG gespeichert, das war der eigentliche Grund
+für die Größe, daher direkt zu `.jpg` konvertiert statt nur verkleinert).
+Neue Fotos bitte vor dem Einchecken auf ähnliche Größenordnung bringen, sonst
+wächst das Repo wieder unnötig. `logo.png`, die SVG-Icons und die bereits
+unreferenzierten Dateien (siehe „Bekannte Probleme") wurden bewusst nicht
+angefasst.
 
 ## Bekannte Probleme (bewusst nicht angefasst — bei Gelegenheit klären, nicht eigenmächtig ändern)
 
