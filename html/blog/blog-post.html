@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <title>Blog | Swan Calisthenics</title>
+    <meta name="description" id="postMetaDescription" content="Tipps zu Training, Ernährung und Calisthenics-Skills von Swan Calisthenics.">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="../../favicon/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="../../favicon/favicon.svg" />
+    <link rel="stylesheet" href="../../css/global.css">
+    <link rel="stylesheet" href="../../css/blog/blog-post-global.css">
+</head>
+<body>
+<!-- NAVIGATION -->
+<nav class="navbar">
+    <div class="nav-container">
+        <a href="../../index.html" class="nav-logo">
+            <img src="../../images/logo.png" alt="Swan Calisthenics Logo">
+            <span>Swan Calisthenics</span>
+        </a>
+        <div class="menu-toggle" id="mobile-menu-btn">
+            <img src="../../images/icons/bars-solid-full.svg" alt="Menü" class="custom-icon">
+        </div>
+        <ul class="nav-menu" id="nav-links">
+            <li><a href="../../index.html#home" class="nav-lnk">Home</a></li>
+            <li><a href="../../index.html#about" class="nav-lnk" onclick="switchPage('home')">Über uns</a></li>
+            <li><a href="../../index.html#times" class="nav-lnk" onclick="switchPage('home')">Zeiten</a></li>
+            <li><a href="../../index.html#location" class="nav-lnk" onclick="switchPage('home')">Standort</a></li>
+            <li><a href="blog.html" class="nav-lnk">Blog</a></li>
+            <li><a href="../team.html" class="nav-lnk">Team</a></li>
+            <li><a href="../kontakt.html" class="nav-lnk">Kontakt</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- POST HEADER -->
+<header class="post-header" id="postHeader">
+    <div class="hero-content">
+        <span class="blog-category" id="postCategory"></span>
+        <h1 class="section-title" id="postTitle"></h1>
+        <div class="blog-card-meta" style="justify-content: center; color: white;">
+            <span><i class="fa-solid fa-calendar-days"></i> <span id="postDate"></span></span>
+            <span><a style="color: white; text-decoration: none" href="../team.html"><i class="fa-solid fa-user"></i> <span id="postAuthor"></span> </a></span>
+        </div>
+    </div>
+</header>
+
+<!-- POST CONTENT -->
+<article class="blog-container">
+    <div class="post-container">
+        <div class="post-back-nav">
+            <a href="blog.html" class="btn btn-tertiary" style="height: 50px;"><i class="fa-solid fa-arrow-left"></i> Zurück zur Übersicht</a>
+        </div>
+
+        <div class="post-content" id="postContent"></div>
+
+        <div style="margin-top: 60px; border-top: 1px solid var(--border-glass); padding-top: 40px;" id="postCtaBlock">
+            <h3 id="postCtaHeading"></h3>
+            <p id="postCtaText"></p>
+            <br>
+            <a href="../../index.html#times" class="btn btn-primary" id="postCtaButton"></a>
+        </div>
+    </div>
+</article>
+
+<!-- FOOTER -->
+<footer>
+    <div class="footer-content">
+        <p>&copy; 2026 Swan Calisthenics Community</p>
+        <p style="font-size: 0.8rem; opacity: 0.7; margin-top: 5px;">Erstellt von Nicolas Brand</p>
+        <ul class="footer-links">
+            <li><a href="../datenschutz_impressum.html">Datenschutz & Impressum</a></li>
+        </ul>
+    </div>
+</footer>
+
+<!-- BACK TO TOP BUTTON -->
+<a href="#" class="back-to-top" id="backToTop"><img src="../../images/icons/arrow-up.svg" alt="Pfeil" class="custom-icon small"></a>
+
+<script src="../../lib/main.js"></script>
+<script src="../../lib/blog-posts-data.js"></script>
+<script src="../../lib/blog.js"></script>
+</body>
+</html>
