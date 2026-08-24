@@ -42,7 +42,8 @@ home/
 │       └── blog-post.html        Einzige Template-Seite für alle Posts, liest `?id=` aus der URL
 ├── lib/
 │   ├── main.js                   Mobil-Menü, Scroll-Spy, FAQ-Accordion,
-│   │                              Telefon-/Email-Dialogmodal, `switchPage()` (Altlast, siehe unten)
+│   │                              Telefon-/Email-Dialogmodal, `switchPage()` (Altlast, siehe unten),
+│   │                              `resolvePictureSources()` für responsive Bilder (siehe unten)
 │   ├── blog-posts-data.js        Inhaltsquelle: BLOG_POSTS-Array, ein Objekt pro Post
 │   └── blog.js                   Rendert Übersicht (`renderBlogGrid`) und Einzel-Post
 │                                  (`renderBlogPost`) aus BLOG_POSTS, inkl. Kategorie-Filter
@@ -60,6 +61,33 @@ Neue Fotos bitte vor dem Einchecken auf ähnliche Größenordnung bringen, sonst
 wächst das Repo wieder unnötig. `logo.png`, die SVG-Icons und die bereits
 unreferenzierten Dateien (siehe „Bekannte Probleme") wurden bewusst nicht
 angefasst.
+
+**Responsive Bilder (Mobil lädt kleinere Dateien):** Für alle größeren Fotos
+(Blog-Karten, Blog-Post-Hero-Bilder, Bilder im Artikeltext, Team-Foto auf der
+Startseite) gibt es zusätzlich eine `-small`-Variante (max. 900 px, Qualität
+80), z. B. `basics.jpeg` + `basics-small.jpeg`. Avatare/Logo/Icons blieben
+unangetastet — die waren nach der obigen Optimierung schon klein genug.
+
+- **Hintergrundbilder** (`.blog-hero`, `.post-header`) wechseln rein per CSS
+  über den bestehenden `@media (max-width: 767px)`-Breakpoint auf die kleine
+  Variante — funktioniert zuverlässig, keine Besonderheiten.
+- **`<img>`-Elemente** (Karten, Team-Foto, Bilder im Artikeltext) nutzen
+  `<picture><source media="(max-width: 767px)" srcset="...-small...">
+  <img src="..." data-large="...">`. Die native Browser-Bildauswahl für
+  `<picture>` erwies sich beim Testen als unzuverlässig, sobald das Element
+  dynamisch per `innerHTML` eingefügt wird (betrifft die Blog-Karten und alle
+  Post-Inhalte) — der Browser schrieb dabei teils schon das `src`-Attribut
+  selbst auf die falsche Variante um, bevor eigenes JS überhaupt lief. Deshalb
+  übernimmt `resolvePictureSources()` in `lib/main.js` die Auswahl komplett
+  selbst: es setzt `img.src` explizit anhand von `window.innerWidth`, wobei
+  `data-large` (ein Attribut, das der Browser nicht kennt und daher nicht
+  anfasst) zuverlässig die große Variante bereithält. Die Funktion läuft
+  direkt beim Laden von `main.js`, nochmal bei `window.onload`, nochmal 300ms
+  verzögert und bei jedem `resize` — die Mehrfachausführung ist bewusst so:
+  in Tests reichte ein einzelner Aufruf teils nicht, weil `window.innerWidth`
+  unmittelbar beim ersten Skriptdurchlauf nicht überall schon den finalen Wert
+  lieferte. `blog.js` ruft `resolvePictureSources()` zusätzlich explizit nach
+  jedem dynamischen Rendern auf (`renderBlogGrid`/`renderBlogPost`).
 
 ## Bekannte Probleme (bewusst nicht angefasst — bei Gelegenheit klären, nicht eigenmächtig ändern)
 

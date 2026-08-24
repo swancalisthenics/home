@@ -29,7 +29,7 @@
             <span>Swan Calisthenics</span>
         </a>
         <div class="menu-toggle" id="mobile-menu-btn">
-            <img src="images/icons/bars-solid-full.svg" alt="Standort" class="custom-icon">
+            <img src="images/icons/bars-solid-full.svg" alt="Menü" class="custom-icon">
         </div>
         <ul class="nav-menu" id="nav-links">
             <li><a href="#home" class="nav-lnk" onclick="switchPage('home')">Home</a></li>
@@ -88,7 +88,10 @@
         <h2 class="section-title">Unsere <span>Community</span></h2>
         <div class="team-container">
             <div class="team-image-wrapper">
-                <img src="./images/blogs/5.7.2026-klein.JPG" alt="Swan Calisthenics Team beim gemeinsamen Training in Horgen" class="team-image" loading="lazy">
+                <picture>
+                    <source media="(max-width: 767px)" srcset="./images/blogs/5.7.2026-klein-small.JPG">
+                    <img src="./images/blogs/5.7.2026-klein.JPG" data-large="./images/blogs/5.7.2026-klein.JPG" alt="Swan Calisthenics Team beim gemeinsamen Training in Horgen" class="team-image" loading="lazy">
+                </picture>
             </div>
             <div class="team-details">
                 <h3>Gemeinsam Stärker</h3>
