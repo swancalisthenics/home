@@ -113,25 +113,6 @@
     }
     .blog-hero {
         padding: 100px 20px 40px;
+        background-image: linear-gradient(rgba(10,10,10,0.8), rgba(10,10,10,0.95)), url('../../images/blogs/5.7.2026-klein-small.JPG');
     }
-}
-
-/* --- SEPARATE PLESKHOLDER BLOG PAGE SYSTEM --- */
-.page { display: none; }
-.page.active-page { display: block; }
-
-.blog-placeholder {
-    min-height: 70vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 0 20px;
-}
-.blog-placeholder i {
-    font-size: 3.5rem;
-    color: var(--accent-red);
-    margin-bottom: 20px;
-    animation: pulse 2s infinite;
 }

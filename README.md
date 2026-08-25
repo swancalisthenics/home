@@ -10,7 +10,7 @@
 ## 1.0 Hosting
 Die Starseite des Projekts: https://swancalisthenics.github.io/home/
 
-Die Blog Page: https://swancalisthenics.github.io/home/html/blog.html
+Die Blog Page: https://swancalisthenics.github.io/home/html/blog/blog.html
 
 ## 2.0 KI Dokumentation
 
