@@ -223,12 +223,14 @@ für den Umsetzungsplan.
   die Übersichtskarte (`cardTitle`, `cardCategory`, `cardDate`, `cardImage`,
   `excerpt`, `filterCategory`) und für die Post-Seite selbst (`title`,
   `metaTitle`, `category`, `date`, `heroImage`, `content`, `ctaHeading`,
-  `ctaText`, `ctaButton`) — diese Trennung ist bewusst und nötig: Beim
+  `ctaText`, `ctaButton`) — diese Trennung ist bewusst und nötig, da Karte und
+  Post-Seite unterschiedliche Anrisstexte/Bilder brauchen können. Beim
   Migrieren der alten Dateien stellte sich heraus, dass Karte und Post-Seite
-  bei den meisten Posts bereits vorher unterschiedliche Werte hatten (z. B.
-  Post 5: Karte zeigt „12. Juni 2026", die Post-Seite selbst „08. Juli 2026";
-  Post 8: Karte zeigt ein anderes Bild als der Post-Header). Das wurde 1:1 so
-  übernommen, nicht vereinheitlicht.
+  bei mehreren Posts (3, 5, 6, 7, 8) unterschiedliche Datums- oder Bildwerte
+  hatten — ursprünglich 1:1 übernommen, in einer späteren Session aber
+  bereinigt: `cardDate`/`date` zeigen jetzt je Post denselben Wert, und
+  Post 8 nutzt auf der Post-Seite (`heroImage`/`heroImageSmall`) dasselbe
+  Handstand-Foto wie die Übersichtskarte statt eines unpassenden Park-Bilds.
 - **`lib/blog.js`** rendert daraus beide Seiten: `renderBlogGrid()` befüllt
   `#blogGrid` auf `html/blog/blog.html`, `renderBlogPost()` befüllt
   `html/blog/blog-post.html` anhand der `?id=`-Query-Parameter. Beide
