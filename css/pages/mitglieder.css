@@ -1,0 +1,325 @@
+/* --- MITGLIEDER-GRID --- Bewusst viel kompakter als die Team-Karten
+   (.people-grid/.person-card in components.css): hier können deutlich mehr
+   Personen aufgelistet sein, deshalb kleine Karten. Ein Klick/Tap auf eine
+   Karte öffnet #mitglied-modal mit den Details (siehe pages/mitglieder.html,
+   js/mitglieder.js) - die Karte selbst zeigt nur Foto, Name und Rolle.
+   `repeat(auto-fill, minmax(...))` statt fester Spaltenzahl: die Anzahl
+   Spalten ergibt sich von selbst aus der verfügbaren Breite (mind. 3 auf
+   praktisch jedem Handy dank 100px-Minimum, deutlich mehr auf breiten PC-
+   Screens) - kein manuelles Nachpflegen mehrerer Breakpoints mehr nötig.
+   max-width jetzt wie der Rest der Seite (--max-width, siehe base.css)
+   statt der bisherigen 720px, die auf breiten Screens viel ungenutzten
+   Leerraum links/rechts liess. */
+.mitglieder-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 14px;
+    max-width: var(--max-width);
+    margin: 0 auto;
+}
+
+/* "Keine Mitglieder gefunden." (renderMitgliederGrid in js/mitglieder.js)
+   ist als einzelnes <p> ein normales Grid-Item und landet dadurch nur in
+   der ersten Spalte statt über die volle Breite - sein eigenes
+   text-align: center (.section-lead) zentriert dann nur innerhalb dieser
+   halben/drittel Breite, nicht über die ganze Zeile. Spannt jetzt alle
+   Spalten. */
+.mitglieder-grid p {
+    grid-column: 1 / -1;
+}
+
+/* Ab hier duerfen die Karten wieder etwas grosszuegiger werden (mehr
+   Platz pro Karte), damit der Zuwachs an Spalten auf breiten Screens nicht
+   in winzigen, gedraengten Kacheln endet - der obere Mindestwert wirkt nur
+   als Untergrenze, "auto-fill" packt bis dahin ohnehin so viele Spalten
+   wie reinpassen. */
+@media (min-width: 640px) {
+    .mitglieder-grid { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); }
+}
+
+.mitglieder-card {
+    cursor: pointer;
+    text-align: center;
+    padding: 18px 10px;
+}
+
+/* Von 64px auf 52px verkleinert - bei mindestens 3 Karten pro Zeile schon
+   auf dem Handy (siehe .mitglieder-grid oben) liess die alte Grösse dem
+   Namen darunter kaum noch Platz. */
+.mitglieder-avatar {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    margin: 0 auto 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--aurora-coral), var(--aurora-red));
+    color: #fff;
+    font-family: 'Libre Baskerville', serif;
+    font-weight: 700;
+    font-size: 1.1rem;
+    border: 2px solid var(--glass-border);
+}
+
+.mitglieder-avatar-lg {
+    width: 120px;
+    height: 120px;
+    font-size: 2.3rem;
+    margin-bottom: 18px;
+}
+
+/* Nur mobil zu schmal empfunden (viel Leerraum links/rechts) - am PC war
+   die Standardbreite von .modal-content (360px) schon in Ordnung, deshalb
+   hier bewusst nicht global geändert, nur fürs Mobil-Layout etwas mehr
+   Breite und weniger seitliches Overlay-Padding. */
+@media (max-width: 767px) {
+    #mitglied-modal {
+        padding: 20px 12px;
+    }
+
+    #mitglied-modal .modal-content {
+        max-width: 400px;
+    }
+}
+
+.mitglieder-card h3,
+.modal-content .mitglieder-modal-name {
+    font-family: 'Libre Baskerville', serif;
+    font-weight: 700;
+    color: var(--aurora-red);
+}
+
+.mitglieder-card h3 {
+    font-size: 0.95rem;
+    margin-bottom: 6px;
+}
+
+.mitglieder-modal-name {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+}
+
+.mitglieder-card .badge,
+.mitglieder-badges .badge {
+    padding: 3px 9px;
+    font-size: 0.62rem;
+}
+
+/* Noch kleiner unterhalb 640px (gleiche Grenze wie die auto-fill-
+   Untergrenze in .mitglieder-grid) - bei mindestens 3 Karten pro Zeile war
+   z.B. "Das bist du" schon knapp und brach in zwei Zeilen um, was Karten
+   in derselben Grid-Reihe unnötig in die Höhe zog. Zusätzlich Karte,
+   Avatar und Abstände verkleinert, damit die Karte selbst eher quadratisch
+   wirkt statt deutlich höher als breit - bei nur einem Badge (der
+   Normalfall) kommt das jetzt nah an ein echtes Quadrat heran; mit
+   mehreren Badges (z.B. "Das bist du" zusätzlich) wird die Karte weiterhin
+   automatisch etwas höher, das ist Inhalt, kein Rest vom alten Abstand. */
+@media (max-width: 639px) {
+    .mitglieder-card {
+        aspect-ratio: 1;
+        padding: 12px 8px;
+    }
+
+    .mitglieder-card .mitglieder-avatar {
+        width: 40px;
+        height: 40px;
+        font-size: 0.9rem;
+        margin-bottom: 6px;
+    }
+
+    .mitglieder-card h3 {
+        font-size: 0.8rem;
+        margin-bottom: 4px;
+    }
+
+    .mitglieder-card .badge {
+        padding: 2px 7px;
+        font-size: 0.52rem;
+    }
+}
+
+.mitglieder-badges {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+}
+
+/* Reihe der Social-/Kontakt-Icons - im Modal immer sichtbar (kein
+   Ausklapp-Mechanismus mehr wie in einer früheren Version dieser Seite). */
+.mitglieder-links {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 18px;
+}
+
+.mitglieder-links a {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    background: var(--glass-fill);
+    border: 1px solid var(--glass-border);
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.mitglieder-links a:hover {
+    transform: translateY(-2px);
+    background: rgba(230, 57, 70, 0.18);
+}
+
+/* .icon (components.css) hat bewusst keine eigene Grösse - jeder Kontext
+   setzt sie selbst (siehe .person-links .icon als Vorbild), sonst bleibt
+   die Maske unsichtbar (0x0 ohne width/height). */
+.mitglieder-links .icon {
+    width: 18px;
+    height: 18px;
+}
+
+/* Nur für Admins sichtbar (siehe js/mitglieder.js), Accounts die schon
+   eingeladen wurden aber noch nie ihr Profil gespeichert haben - daher nur
+   E-Mail statt Name/Rollen, keine Karte im .mitglieder-grid-Stil (nichts
+   anklickbar, es gibt nichts zu bearbeiten). */
+.eingeladene-liste {
+    margin: 32px auto 0;
+    padding-top: 24px;
+    border-top: 1px solid var(--glass-border);
+    max-width: 720px;
+}
+
+.eingeladene-heading {
+    font-family: 'Libre Baskerville', serif;
+    font-weight: 700;
+    color: var(--aurora-red);
+    font-size: 1.1rem;
+    margin-bottom: 14px;
+}
+
+.eingeladene-card {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 16px;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+}
+
+.eingeladene-email {
+    color: var(--text-muted);
+    word-break: break-word;
+    flex: 1;
+}
+
+/* An den rechten Kartenrand gedrueckt (flex: 1 auf .eingeladene-email
+   davor nimmt den restlichen Platz), kleiner als der Standard-.btn -
+   in dieser kompakten Zeile neben Badge + Text sonst zu dominant. */
+.anfrage-loeschen-btn {
+    padding: 8px 16px;
+    font-size: 0.85rem;
+}
+
+/* Mobil gestapelt statt nebeneinander: Badge + (Name -) E-Mail liessen der
+   E-Mail-Adresse in der schmalen Restbreite neben dem Badge kaum Platz -
+   eine lange Adresse brach dadurch mitten im Wort um ("nicolas.bra" /
+   "nd.horgen" / ...). Badge oben, Text darunter, beides zentriert. */
+@media (max-width: 767px) {
+    .eingeladene-card {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .eingeladene-email {
+        flex: none;
+    }
+}
+
+/* Nur für Admins sichtbar (siehe js/mitglieder.js) - rein lokale
+   "Ansicht wechseln"-Simulation, keine echte Rollen-Änderung. */
+.view-as-toggle-wrap {
+    max-width: 480px;
+    margin: 0 auto 24px;
+    text-align: center;
+}
+
+/* .form-hint (components.css) ist bewusst standardmässig linksbündig für
+   Formularfelder - hier drunter aber zentriert unter dem Button, deshalb
+   an dieser Stelle explizit überschrieben. */
+.view-as-toggle-wrap #viewAsNotice {
+    text-align: center;
+    margin: 10px 0 0;
+}
+
+/* .btn (components.css) setzt "white-space: nowrap" - bei diesem langen,
+   dynamischen Label ("Ansicht: Admin (als normales Mitglied testen)")
+   lief der Text auf schmalen Handys über den Rand der Pille hinaus statt
+   im Button umzubrechen. Hier gezielt wieder erlaubt. */
+.view-as-toggle-wrap .btn {
+    white-space: normal;
+    text-align: center;
+}
+
+/* Ebenfalls nur für Admins sichtbar, im Mitglied-Modal - Admin-Status
+   selbst lässt sich hier bewusst nicht ändern (siehe Trigger in
+   supabase/002-admin-rollen.sql), taucht deshalb auch nicht als Option
+   auf. Fünf .toggle-Zeilen (Aktivmitglied/Passivmitglied/Ehrenmitglied/
+   Präsident/Gönner) - kein Freitextfeld mehr. "Vorstand" wurde als Rolle
+   wieder entfernt, "Mitglied" wurde durch Aktiv-/Passivmitglied ersetzt. */
+.mitglied-rollen-editor {
+    margin-top: 18px;
+    padding-top: 18px;
+    border-top: 1px solid var(--glass-border);
+    text-align: left;
+}
+
+.mitglied-rollen-editor > label:first-child {
+    display: block;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+/* Kompakter als der .toggle-Standardabstand (20px) - hier stehen direkt
+   vier Zeilen untereinander, nicht einzeln in einem längeren Formular. */
+.mitglied-rollen-editor .toggle {
+    margin-bottom: 12px;
+}
+
+.mitglied-rollen-editor .btn {
+    width: 100%;
+    margin-top: 8px;
+}
+
+/* Ab 768px (gleicher Breakpoint wie .profile-layout auf mein-profil.html):
+   Profil links, Rollen-Editor rechts nebeneinander statt untereinander.
+   Nur wenn der Editor tatsächlich sichtbar ist (:has() - Admin, nicht
+   gerade "als normales Mitglied testen"), sonst bliebe das Modal für alle
+   anderen Mitglieder unnötig breit mit viel Leerraum neben dem zentrierten
+   Profil. */
+@media (min-width: 768px) {
+    .mitglied-modal-content:has(.mitglied-rollen-editor:not([hidden])) {
+        max-width: 640px;
+    }
+
+    .mitglied-modal-content:has(.mitglied-rollen-editor:not([hidden])) .mitglied-modal-layout {
+        display: flex;
+        align-items: flex-start;
+        gap: 32px;
+    }
+
+    .mitglied-modal-content:has(.mitglied-rollen-editor:not([hidden])) .mitglied-modal-profile {
+        flex: 0 0 200px;
+    }
+
+    .mitglied-modal-content:has(.mitglied-rollen-editor:not([hidden])) .mitglied-rollen-editor {
+        flex: 1;
+        margin-top: 0;
+        padding-top: 0;
+        border-top: none;
+        border-left: 1px solid var(--glass-border);
+        padding-left: 32px;
+    }
+}

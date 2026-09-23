@@ -3,142 +3,149 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#f6f5fb" media="(prefers-color-scheme: light)" data-scheme="light">
+    <meta name="theme-color" content="#15141f" media="(prefers-color-scheme: dark)" data-scheme="dark">
+    <script>(function(){var t=localStorage.getItem('theme');if(t==='dark'||t==='light'){document.documentElement.setAttribute('data-theme',t);}var lm=document.querySelector('meta[data-scheme="light"]'),dm=document.querySelector('meta[data-scheme="dark"]');if(t==='dark'){lm.media='not all';dm.media='all';}else if(t==='light'){lm.media='all';dm.media='not all';}})();</script>
+    <script src="js/site-chrome.js"></script>
     <script defer src="https://cloud.umami.is/script.js" data-website-id="06a8c472-1245-4f03-9396-276a024c7ef4" data-exclude-hash="true" data-do-not-track="true"></script>
 
     <title>Swan Calisthenics | Dein Outdoor-Training</title>
-
     <meta name="description" content="Werde Teil der Swan Calisthenics Community in Horgen. Offenes Outdoor-Training für jedes Level – von Basics bis Mastery. Train Together. Get Stronger.">
     <meta name="author" content="Nicolas Brand">
 
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="./favicon/favicon-96x96.png" sizes="96x96" />
-    <link rel="icon" type="image/svg+xml" href="./favicon/favicon.svg" />
-    <link rel="shortcut icon" href="./favicon/favicon.ico" />
-    <link rel="apple-touch-icon" sizes="180x180" href="./favicon/apple-touch-icon.png" />
-    <meta name="apple-mobile-web-app-title" content="SwCali" />
-    <link rel="manifest" href="./favicon/site.webmanifest" />
-    <link rel="stylesheet" href="./css/global.css">
-    <link rel="stylesheet" href="./css/index.css">
+    <link rel="icon" type="image/png" href="assets/favicon/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/svg+xml" href="assets/favicon/favicon.svg">
+    <link rel="shortcut icon" href="assets/favicon/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+    <meta name="apple-mobile-web-app-title" content="SwCali">
+    <link rel="manifest" href="assets/favicon/site.webmanifest">
+
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/pages/home.css">
 </head>
-<body>
+<body data-page="home" data-base="">
+
+<div class="aurora-blob coral"></div>
+<div class="aurora-blob violet"></div>
+<div class="aurora-blob blue"></div>
 
 <!-- NAVIGATION -->
-<nav class="navbar">
-    <div class="nav-container">
-        <a href="#" class="nav-logo" onclick="switchPage('home')">
-            <img src="./images/logo.png" alt="Swan Calisthenics Logo">
-            <span>Swan Calisthenics</span>
-        </a>
-        <div class="menu-toggle" id="mobile-menu-btn">
-            <img src="images/icons/bars-solid-full.svg" alt="Menü" class="custom-icon">
-        </div>
-        <ul class="nav-menu" id="nav-links">
-            <li><a href="#home" class="nav-lnk" onclick="switchPage('home')">Home</a></li>
-            <li><a href="#about" class="nav-lnk" onclick="switchPage('home')">Über uns</a></li>
-            <li><a href="#times" class="nav-lnk" onclick="switchPage('home')">Zeiten</a></li>
-            <li><a href="#location" class="nav-lnk" onclick="switchPage('home')">Standort</a></li>
-            <li><a href="html/blog/blog.html" class="nav-lnk">Blog</a></li>
-            <li><a href="html/team.html" class="nav-lnk">Team</a></li>
-            <li><a href="./html/kontakt.html" class="nav-lnk">Kontakt</a></li>
-        </ul>
-    </div>
-</nav>
+<site-topbar></site-topbar>
 
-<!-- --- MAIN HOME PAGE --- -->
-<div id="home-page" class="page active-page">
+<main>
 
-    <!-- HERO AREA -->
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <img src="./images/logo.png" alt="Swan Calisthenics Big Logo" class="hero-logo">
-            <h1>Gemeinsam<br><span class="redspan">Stärker</span> werden</h1>
-            <p>Werde Teil der Swan Calisthenics Community und bring dein Training auf das nächste Level.</p>
-            <div class="hero-ctas">
-                <a href="#times" class="btn btn-primary"><img src="images/icons/calendar.svg" alt="Nächstes Training" class="custom-icon small"> Nächstes Training</a>
-                <a href="https://chat.whatsapp.com/Lu1Yxhse5a75IWVzupbcaQ?mode=gi_t" target="_blank" class="btn btn-primary"><img src="images/icons/whatsapp.svg" alt="WhatsApp-Gruppe" class="custom-icon small"> WhatsApp-Gruppe</a>
-                <a href="https://www.instagram.com/swancalisthenics/" target="_blank" class="btn btn-primary"><img src="images/icons/instagram.svg" alt="Instagram" class="custom-icon small"> Instagram</a>
-                <a href="#location" class="btn btn-primary"><img src="images/icons/map-location-dot.svg" alt="Standort" class="custom-icon small"> Standort</a>
-            </div>
+    <!-- HERO -->
+    <section id="home" data-section="home" class="hero">
+        <img src="assets/images/logo.png" alt="Swan Calisthenics Logo" class="hero-logo">
+        <h1>Gemeinsam<br><span class="accent">Stärker</span> werden</h1>
+        <p>Werde Teil der Swan Calisthenics Community und bring dein Training auf das nächste Level.</p>
+        <div class="hero-ctas">
+            <a href="#times" class="btn btn-primary"><span class="icon icon-calendar btn-icon" aria-hidden="true"></span>Nächstes Training</a>
+            <a href="https://chat.whatsapp.com/Lu1Yxhse5a75IWVzupbcaQ?mode=gi_t" target="_blank" rel="noopener" class="btn btn-secondary"><span class="icon icon-whatsapp btn-icon" aria-hidden="true"></span>WhatsApp-Gruppe</a>
+            <a href="https://www.instagram.com/swancalisthenics/" target="_blank" rel="noopener" class="btn btn-secondary"><span class="icon icon-instagram btn-icon" aria-hidden="true"></span>Instagram</a>
+            <a href="#location" class="btn btn-secondary"><span class="icon icon-map-location-dot btn-icon" aria-hidden="true"></span>Standort</a>
         </div>
     </section>
 
     <!-- ÜBER UNS -->
-    <section id="about">
-        <h2 class="section-title">Das sind <span>wir</span></h2>
+    <section id="about" data-section="about" class="section">
+        <h2 class="section-title">Das sind <span class="accent">wir</span></h2>
         <div class="about-grid">
-            <div class="about-card">
-                <img src="images/icons/users.svg" alt="Community" class="custom-icon big">
+            <div class="glass-card about-card">
+                <span class="icon icon-users about-icon" aria-hidden="true"></span>
                 <h3>Offene Community</h3>
                 <p>Bei uns zählt nur deine Leidenschaft! In einem familiären Umfeld pushen wir uns gegenseitig zu neuen Höchstleistungen und holen das Beste aus dir heraus.</p>
             </div>
-            <div class="about-card">
-                <img src="images/icons/handshake.svg" alt="Respekt" class="custom-icon big">
+            <div class="glass-card about-card">
+                <span class="icon icon-handshake about-icon" aria-hidden="true"></span>
                 <h3>Respekt & Motivation</h3>
                 <p>Respekt steht bei uns an erster Stelle. Wir begegnen uns auf Augenhöhe, motivieren uns in Tiefphasen und feiern jede neue Progression und jeden neuen Skill zusammen.</p>
             </div>
-            <div class="about-card">
-                <img src="images/icons/book-open.svg" alt="Geschichte" class="custom-icon big">
+            <div class="glass-card about-card">
+                <span class="icon icon-book-open about-icon" aria-hidden="true"></span>
                 <h3>Geschichte</h3>
                 <p>Swan Calisthenics entstand aus unserer Vision, das Training familiär zu gestalten und uns gegenseitig zu unterstützen. Wir wollen Calisthenics für jeden und jede zugänglich machen - ganz ohne Vorurteile. Wir sind mehr als nur ein Team: Wir sind eine Familie, die gemeinsam schwitzt und über sich hinauswächst.</p>
             </div>
         </div>
     </section>
 
-    <!-- UNSER TEAM -->
-    <section>
-        <h2 class="section-title">Unsere <span>Community</span></h2>
-        <div class="team-container">
-            <div class="team-image-wrapper">
-                <picture>
-                    <source media="(max-width: 767px)" srcset="./images/blogs/5.7.2026-klein-small.JPG">
-                    <img src="./images/blogs/5.7.2026-klein.JPG" data-large="./images/blogs/5.7.2026-klein.JPG" alt="Swan Calisthenics Team beim gemeinsamen Training in Horgen" class="team-image" loading="lazy">
-                </picture>
-            </div>
-            <div class="team-details">
-                <h3>Gemeinsam Stärker</h3>
-                <p>Wir sind kein anonymer Fitnessclub, sondern eine leidenschaftliche Gruppe. Unser Team besteht aus erfahrenen Athleten und motivierten Einsteigern, die dir bei deiner persönlichen Entwicklung mit Freude zur Seite stehen</p>
-            </div>
+    <!-- COMMUNITY SLIDER -->
+    <section data-section="community" class="section">
+        <h2 class="section-title">Unsere <span class="accent">Community</span></h2>
+        <p class="community-lead">Wir sind kein anonymer Fitnessclub, sondern eine leidenschaftliche Gruppe. Wisch durch unsere letzten Community Workouts.</p>
+        <div class="slider-track" role="region" aria-label="Bilder vergangener Community Workouts">
+            <figure class="glass-card slide"><img src="assets/images/community/Gruppenbild_30.8.2026_klein.jpg" data-large="assets/images/community/Gruppenbild_30.8.2026_gross.jpg" alt="Community Workout vom 30. August 2026" loading="lazy" class="slide-img" data-caption="30. August 2026" tabindex="0" role="button" aria-label="Bild vom 30. August 2026 gross ansehen"><figcaption>30. August 2026</figcaption></figure>
+            <figure class="glass-card slide"><img src="assets/images/community/Gruppenbild_23.8.2026_klein.jpg" data-large="assets/images/community/Gruppenbild_23.8.2026_gross.jpg" alt="Community Workout vom 23. August 2026" loading="lazy" class="slide-img" data-caption="23. August 2026" tabindex="0" role="button" aria-label="Bild vom 23. August 2026 gross ansehen"><figcaption>23. August 2026</figcaption></figure>
+            <figure class="glass-card slide"><img src="assets/images/community/Gruppenbild_16.8.2026_klein.jpg" data-large="assets/images/community/Gruppenbild_16.8.2026_gross.jpg" alt="Community Workout vom 16. August 2026" loading="lazy" class="slide-img" data-caption="16. August 2026" tabindex="0" role="button" aria-label="Bild vom 16. August 2026 gross ansehen"><figcaption>16. August 2026</figcaption></figure>
+            <figure class="glass-card slide"><img src="assets/images/community/Gruppenbild_9.8.2026_klein.jpg" data-large="assets/images/community/Gruppenbild_9.8.2026_gross.jpg" alt="Community Workout vom 9. August 2026" loading="lazy" class="slide-img" data-caption="9. August 2026" tabindex="0" role="button" aria-label="Bild vom 9. August 2026 gross ansehen"><figcaption>9. August 2026</figcaption></figure>
+            <figure class="glass-card slide"><img src="assets/images/community/Gruppenbild_2.8.2026_klein.jpg" data-large="assets/images/community/Gruppenbild_2.8.2026_gross.jpg" alt="Community Workout vom 2. August 2026" loading="lazy" class="slide-img" data-caption="2. August 2026" tabindex="0" role="button" aria-label="Bild vom 2. August 2026 gross ansehen"><figcaption>2. August 2026</figcaption></figure>
+            <figure class="glass-card slide"><img src="assets/images/community/Gruppenbild_26.7.2026_klein.jpg" data-large="assets/images/community/Gruppenbild_26.7.2026_gross.jpg" alt="Community Workout vom 26. Juli 2026" loading="lazy" class="slide-img" data-caption="26. Juli 2026" tabindex="0" role="button" aria-label="Bild vom 26. Juli 2026 gross ansehen"><figcaption>26. Juli 2026</figcaption></figure>
+            <figure class="glass-card slide"><img src="assets/images/community/Gruppenbild_19.7.2026_klein.jpg" data-large="assets/images/community/Gruppenbild_19.7.2026_gross.jpg" alt="Community Workout vom 19. Juli 2026" loading="lazy" class="slide-img" data-caption="19. Juli 2026" tabindex="0" role="button" aria-label="Bild vom 19. Juli 2026 gross ansehen"><figcaption>19. Juli 2026</figcaption></figure>
+            <figure class="glass-card slide"><img src="assets/images/community/Gruppenbild_12.7.2026_klein.jpg" data-large="assets/images/community/Gruppenbild_12.7.2026_gross.jpg" alt="Community Workout vom 12. Juli 2026" loading="lazy" class="slide-img" data-caption="12. Juli 2026" tabindex="0" role="button" aria-label="Bild vom 12. Juli 2026 gross ansehen"><figcaption>12. Juli 2026</figcaption></figure>
+            <figure class="glass-card slide"><img src="assets/images/community/Gruppenbild_5.7.2026_klein.jpg" data-large="assets/images/community/Gruppenbild_5.7.2026_gross.jpg" alt="Community Workout vom 5. Juli 2026" loading="lazy" class="slide-img" data-caption="5. Juli 2026" tabindex="0" role="button" aria-label="Bild vom 5. Juli 2026 gross ansehen"><figcaption>5. Juli 2026</figcaption></figure>
         </div>
     </section>
 
     <!-- TRAININGSZEITEN -->
-    <section id="times">
-        <h2 class="section-title">Community <span>Workouts</span></h2>
-        <div class="times-grid">
-            <div class="time-card highlight">
-                <div class="day-name">Jeden Sonntag <br> ab dem 5.7.2026</div>
-                <div class="time-hours">18:00 - 20:00</div>
+    <section id="times" data-section="times" class="section">
+        <h2 class="section-title">Community <span class="accent">Workouts</span></h2>
+        <div class="training-countdown" id="training-countdown">
+            <p class="countdown-intro" id="countdown-intro">Nächstes Training:</p>
+            <div class="countdown-grid" id="countdown-grid">
+                <div class="countdown-unit">
+                    <span class="countdown-value" id="countdown-days">00</span>
+                    <span class="countdown-unit-label">Tage</span>
+                </div>
+                <span class="countdown-separator" aria-hidden="true">:</span>
+                <div class="countdown-unit">
+                    <span class="countdown-value" id="countdown-hours">00</span>
+                    <span class="countdown-unit-label">Std</span>
+                </div>
+                <span class="countdown-separator" aria-hidden="true">:</span>
+                <div class="countdown-unit">
+                    <span class="countdown-value" id="countdown-minutes">00</span>
+                    <span class="countdown-unit-label">Min</span>
+                </div>
+                <span class="countdown-separator" aria-hidden="true">:</span>
+                <div class="countdown-unit">
+                    <span class="countdown-value" id="countdown-seconds">00</span>
+                    <span class="countdown-unit-label">Sek</span>
+                </div>
             </div>
+            <p class="countdown-live" id="countdown-live" hidden>Training läuft gerade 🔥</p>
         </div>
-        <div class="times-info">
-            <p><strong><i class="fa-solid fa-circle-info"></i> Wichtiger Hinweis:</strong> Spontane Änderungen, wetterbedingte Verschiebungen sowie coole <strong>Teamevents</strong> mit fixen Zeiten kommunizieren wir topaktuell über unsere WhatsApp-Gruppe und Instagram.</p>
+        <div class="glass-card time-card">
+            <div class="time-day">Jeden Sonntag</div>
+            <div class="time-hours">18:00 – 20:00</div>
         </div>
+        <p class="times-note"><strong>Wichtiger Hinweis:</strong> Spontane Änderungen, wetterbedingte Verschiebungen sowie coole <strong>Teamevents</strong> mit fixen Zeiten kommunizieren wir topaktuell über unsere WhatsApp-Gruppe und Instagram.</p>
     </section>
 
     <!-- LEVEL GUIDE -->
-    <section id="levels">
-        <h2 class="section-title">Für <span>jedes</span> Level</h2>
+    <section data-section="levels" class="section">
+        <h2 class="section-title">Für <span class="accent">jedes</span> Level</h2>
         <div class="level-grid">
-            <div class="level-card">
-                <img src="./images/level.1.jpg" alt="Anfänger beim Calisthenics Training" class="level-img" loading="lazy">
-                <div class="level-content">
-                    <span class="level-badge">Starter</span>
+            <div class="glass-card level-card">
+                <img src="assets/images/level.1.jpg" alt="Anfänger beim Calisthenics Training" loading="lazy">
+                <div class="level-body">
+                    <span class="badge badge-category">Starter</span>
                     <h3>Basics Aufbauen</h3>
                     <p>Erlerne die saubere Ausführung der Grundübungen wie Klimmzüge und Liegestütze. Keine Vorkenntnisse nötig!</p>
                 </div>
             </div>
-            <div class="level-card">
-                <img src="./images/level.2.png" alt="Fortgeschrittener Calisthenics Athlet am Reck" class="level-img" loading="lazy">
-                <div class="level-content">
-                    <span class="level-badge">Advanced</span>
+            <div class="glass-card level-card">
+                <img src="assets/images/level.2.png" alt="Fortgeschrittener Calisthenics Athlet am Reck" loading="lazy">
+                <div class="level-body">
+                    <span class="badge badge-category">Advanced</span>
                     <h3>Erste Skills</h3>
                     <p>Du beherrschst die Basics? Dann geht es jetzt an Muscle-Ups, Handstände und fortgeschrittenen Kraftvariationen!</p>
                 </div>
             </div>
-            <div class="level-card">
-                <img src="./images/level.3.png" alt="Profi Calisthenics Training" class="level-img" loading="lazy">
-                <div class="level-content">
-                    <span class="level-badge">Elite</span>
+            <div class="glass-card level-card">
+                <img src="assets/images/level.3.png" alt="Profi Calisthenics Training" loading="lazy">
+                <div class="level-body">
+                    <span class="badge badge-category">Elite</span>
                     <h3>Mastery</h3>
                     <p>Front Lever, Planche oder weighted Calisthenics. Optimiere deine High-End-Skills!</p>
                 </div>
@@ -146,96 +153,161 @@
         </div>
     </section>
 
-    <!-- TRAININGSORT -->
-    <section id="location">
-        <h2 class="section-title">Unser <span>Trainingsort</span></h2>
-        <div class="location-container">
-            <img src="./images/standort.png" alt="Street Workout Park Horgen Karte Standort" class="map-img" loading="lazy">
+    <!-- STANDORT -->
+    <section id="location" data-section="location" class="section">
+        <h2 class="section-title">Unser <span class="accent">Trainingsort</span></h2>
+        <div class="glass-card location-card">
+            <img src="assets/images/standort.png" alt="Street Workout Park Horgen Karte Standort" loading="lazy" class="location-map-img">
             <div class="location-details">
-                <div class="address-box">
-                    <img src="images/icons/location-dot.svg" alt="Standort" class="custom-icon big">
-                    <p>Street Workout Park Horgen<br>8810 Horgen, Schweiz</p>
-                </div>
-                <div class="location-ctas">
-                    <a href="https://maps.google.com/?q=Street Workout Park Horgen+8810+Horgen" target="_blank" class="btn btn-primary"><img src="images/icons/map-location-dot.svg" alt="Standort" class="custom-icon small"> In Google Maps öffnen</a>
-                </div>
+                <p class="location-address"><span class="icon icon-location-dot" aria-hidden="true"></span>Street Workout Park Horgen<br>8810 Horgen, Schweiz</p>
+                <a href="https://maps.google.com/?q=Street Workout Park Horgen+8810+Horgen" target="_blank" rel="noopener" class="btn btn-primary"><span class="icon icon-map-location-dot btn-icon" aria-hidden="true"></span>In Google Maps öffnen</a>
             </div>
         </div>
     </section>
 
-    <!-- FAQ ACCORDION -->
-    <section id="faq">
-        <div class="faq-master-wrapper section-master-wrapper">
-            <h2 class="section-title section-master-trigger" id="faqMasterTrigger">
-                Häufige <span>Fragen</span> <i class="fa-solid fa-chevron-down"></i>
-            </h2>
-            
-            <div class="faq-master-content section-master-content" id="faqMasterContent">
-                <div class="faq-container">
-                    <div class="faq-item">
-                        <button class="faq-trigger">Muss ich Mitglied werden? <i class="fa-solid fa-chevron-down"></i></button>
-                        <div class="faq-content"><p>Nein, absolut nicht! Wir sind eine offene Community und kein starrer, bürokratischer Verein. Komm einfach vorbei, wenn du Lust hast.</p></div>
-                    </div>
-                    <div class="faq-item">
-                        <button class="faq-trigger">Kostet das Training etwas? <i class="fa-solid fa-chevron-down"></i></button>
-                        <div class="faq-content"><p>Das Training ist kostenlos. Da wir den öffentlichen Street Workout Park nutzen, fallen keine Gebühren an.</p></div>
-                    </div>
-                    <div class="faq-item">
-                        <button class="faq-trigger">Kann ich einfach vorbeikommen? <i class="fa-solid fa-chevron-down"></i></button>
-                        <div class="faq-content"><p>Ja, genau dafür sind wir da! Schau dir unsere Richtzeiten an oder checke kurz in der WhatsApp-Gruppe, ob gerade jemand am Park aktiv ist.</p></div>
-                    </div>
-                    <div class="faq-item">
-                        <button class="faq-trigger">Brauche ich Vorkenntnisse? <i class="fa-solid fa-chevron-down"></i></button>
-                        <div class="faq-content"><p>Überhaupt nicht. Egal ob du noch keinen einzigen Klimmzug schaffst oder schon den Handstand beherrschst – wir passen die Übungen an dein Level an.</p></div>
-                    </div>
-                    <div class="faq-item">
-                        <button class="faq-trigger">Welche Ausrüstung benötige ich? <i class="fa-solid fa-chevron-down"></i></button>
-                        <div class="faq-content"><p>Bringe einfach sportliche, dem Wetter angepasste Kleidung und etwas zu trinken mit. Wer mag, kann eigene Trainingshandschuhe oder Chalk mitbringen, ist aber kein Muss.</p></div>
-                    </div>
-                    <div class="faq-item">
-                        <button class="faq-trigger">Wie werde ich über die nächsten Events informiert? <i class="fa-solid fa-chevron-down"></i></button>
-                        <div class="faq-content"><p>Über unsere WhatsApp-Gruppe oder Instagram-Kanal erhältst du immer die aktuellsten Informationen.</p></div>
-                    </div>
-                    <div class="faq-item">
-                        <button class="faq-trigger">Was ist Calisthenics? <i class="fa-solid fa-chevron-down"></i></button>
-                        <div class="faq-content"><p>Bei Calisthenics trainiert man mit dem eigenen Körpergewicht. Ziel ist es, Kraft, Ausdauer, Koordination und Beweglichkeit zu verbessern. Man benötigt keine schweren Gewichte, sondern nutzt meist Stangen, Ringe oder einfach den Boden.</p></div>
-                    </div>
-                    <div class="faq-item">
-                        <button class="faq-trigger">Calisthenics - Vorteile gegenüber Gym<i class="fa-solid fa-chevron-down"></i></button>
-                        <div class="faq-content"><p>Calisthenics erfordert keine teuren Mitgliedschaften und ist extrem flexibel. Im Vergleich zum klassischen Fitnessstudio (Gym) schult es vor allem funktionelle Kraft, Koordination und Beweglichkeit, da stets ganze Muskelketten anstatt isolierter Muskeln beansprucht werden. Ausserdem ist Calisthenics unserer Meinung nach viel Sozialer.</p></div>
-                    </div>
-                </div>
+    <!-- FAQ -->
+    <section id="faq" data-section="faq" class="section">
+        <h2 class="section-title">Häufige <span class="accent">Fragen</span></h2>
+        <div class="glass-card faq-list">
+            <div class="faq-item">
+                <button class="faq-trigger">Muss ich Mitglied werden? <svg class="chev" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+                <div class="faq-content"><p>Nein, absolut nicht! Wir sind eine offene Community und kein starrer, bürokratischer Verein. Komm einfach vorbei, wenn du Lust hast.</p></div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-trigger">Kostet das Training etwas? <svg class="chev" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+                <div class="faq-content"><p>Das Training ist kostenlos. Da wir den öffentlichen Street Workout Park nutzen, fallen keine Gebühren an.</p></div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-trigger">Kann ich einfach vorbeikommen? <svg class="chev" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+                <div class="faq-content"><p>Ja, genau dafür sind wir da! Schau dir unsere Richtzeiten an oder checke kurz in der WhatsApp-Gruppe, ob gerade jemand am Park aktiv ist.</p></div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-trigger">Brauche ich Vorkenntnisse? <svg class="chev" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+                <div class="faq-content"><p>Überhaupt nicht. Egal ob du noch keinen einzigen Klimmzug schaffst oder schon den Handstand beherrschst – wir passen die Übungen an dein Level an.</p></div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-trigger">Welche Ausrüstung benötige ich? <svg class="chev" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+                <div class="faq-content"><p>Bringe einfach sportliche, dem Wetter angepasste Kleidung und etwas zu trinken mit. Wer mag, kann eigene Trainingshandschuhe oder Chalk mitbringen, ist aber kein Muss.</p></div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-trigger">Wie werde ich über die nächsten Events informiert? <svg class="chev" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+                <div class="faq-content"><p>Über unsere WhatsApp-Gruppe oder Instagram-Kanal erhältst du immer die aktuellsten Informationen.</p></div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-trigger">Was ist Calisthenics? <svg class="chev" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+                <div class="faq-content"><p>Bei Calisthenics trainiert man mit dem eigenen Körpergewicht. Ziel ist es, Kraft, Ausdauer, Koordination und Beweglichkeit zu verbessern. Man benötigt keine schweren Gewichte, sondern nutzt meist Stangen, Ringe oder einfach den Boden.</p></div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-trigger">Calisthenics – Vorteile gegenüber Gym <svg class="chev" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+                <div class="faq-content"><p>Calisthenics erfordert keine teuren Mitgliedschaften und ist extrem flexibel. Im Vergleich zum klassischen Fitnessstudio (Gym) schult es vor allem funktionelle Kraft, Koordination und Beweglichkeit, da stets ganze Muskelketten anstatt isolierter Muskeln beansprucht werden. Ausserdem ist Calisthenics unserer Meinung nach viel Sozialer.</p></div>
             </div>
         </div>
     </section>
 
-    <!-- SOCIAL COMMUNITY BANNER -->
-    <section class="community-section">
-        <h2>Nichts mehr verpassen!</h2>
-        <p>Tritt unseren offiziellen Kanälen bei, um stets über spontane Sessions, Events und Location-Wechsel informiert zu bleiben.</p>
-        <div class="com-buttons">
-            <a href="https://chat.whatsapp.com/Lu1Yxhse5a75IWVzupbcaQ?mode=gi_t" target="_blank" class="btn btn-primary"><img src="images/icons/whatsapp.svg" alt="WhatsApp-Gruppe" class="custom-icon small"></i>WhatsApp-Gruppe</a>
-            <a href="https://www.instagram.com/swancalisthenics/" target="_blank" class="btn btn-primary"><img src="images/icons/instagram.svg" alt="Instagram" class="custom-icon small">Instagram</a>
+    <!-- SOCIAL BANNER -->
+    <section class="section">
+        <div class="glass-card social-banner">
+            <h2>Nichts mehr verpassen!</h2>
+            <p>Tritt unseren offiziellen Kanälen bei, um stets über spontane Sessions, Events und Location-Wechsel informiert zu bleiben.</p>
+            <div class="social-buttons">
+                <a href="https://chat.whatsapp.com/Lu1Yxhse5a75IWVzupbcaQ?mode=gi_t" target="_blank" rel="noopener" class="btn btn-primary"><span class="icon icon-whatsapp btn-icon" aria-hidden="true"></span>WhatsApp-Gruppe</a>
+                <a href="https://www.instagram.com/swancalisthenics/" target="_blank" rel="noopener" class="btn btn-primary"><span class="icon icon-instagram btn-icon" aria-hidden="true"></span>Instagram</a>
+            </div>
         </div>
     </section>
 
+</main>
+
+<!-- BILD-LIGHTBOX -->
+<div id="image-lightbox" class="modal-overlay lightbox-overlay">
+    <button class="lightbox-nav lightbox-prev" onclick="lightboxPrev()" aria-label="Vorheriges Bild">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+    <div class="modal-content lightbox-content">
+        <button class="modal-close" onclick="closeLightbox()" aria-label="Schliessen">&times;</button>
+        <div class="lightbox-img-wrap">
+            <img id="lightbox-img" src="" alt="">
+        </div>
+        <p id="lightbox-caption" class="lightbox-caption"></p>
+    </div>
+    <button class="lightbox-nav lightbox-next" onclick="lightboxNext()" aria-label="Nächstes Bild">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+</div>
+
+<!-- LOGIN-/LOGOUT-MODAL (Mitgliederbereich) -->
+<site-account-modals></site-account-modals>
+
+<div id="set-password-modal" class="modal-overlay">
+    <div class="modal-content">
+        <button class="modal-close" onclick="closeSetPasswordModal()" aria-label="Schliessen">&times;</button>
+        <h3>Passwort festlegen</h3>
+        <form id="setPasswordForm" onsubmit="return handleSetPasswordSubmit(event)">
+            <div class="field">
+                <label for="setPasswordNew">Neues Passwort</label>
+                <input type="password" id="setPasswordNew" name="newPassword" required autocomplete="new-password" minlength="8">
+            </div>
+            <div class="field">
+                <label for="setPasswordConfirm">Passwort bestätigen</label>
+                <input type="password" id="setPasswordConfirm" name="confirmPassword" required autocomplete="new-password" minlength="8">
+            </div>
+            <p id="setPasswordError" class="form-error" hidden></p>
+            <div class="modal-actions">
+                <button type="submit" class="btn btn-primary">Passwort speichern</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div id="auth-error-modal" class="modal-overlay">
+    <div class="modal-content">
+        <button class="modal-close" onclick="closeAuthErrorModal()" aria-label="Schliessen">&times;</button>
+        <h3>Link abgelaufen</h3>
+        <p>Dieser Link ist ungültig oder abgelaufen. Bitte wende dich an den Vorstand, um einen neuen Link zu erhalten.</p>
+        <div class="modal-actions">
+            <button type="button" class="btn btn-primary" onclick="closeAuthErrorModal()">Verstanden</button>
+        </div>
+    </div>
 </div>
 
 <!-- FOOTER -->
 <footer>
     <div class="footer-content">
+        <div class="footer-social">
+            <a href="https://chat.whatsapp.com/Lu1Yxhse5a75IWVzupbcaQ?mode=gi_t" target="_blank" rel="noopener" class="footer-social-link" aria-label="WhatsApp-Gruppe">
+                <span class="icon icon-whatsapp" aria-hidden="true"></span>
+            </a>
+            <a href="https://www.instagram.com/swancalisthenics/" target="_blank" rel="noopener" class="footer-social-link" aria-label="Instagram">
+                <span class="icon icon-instagram" aria-hidden="true"></span>
+            </a>
+            <a href="https://www.tiktok.com/@swancalisthenics" target="_blank" rel="noopener" class="footer-social-link" aria-label="TikTok">
+                <span class="icon icon-tiktok" aria-hidden="true"></span>
+            </a>
+        </div>
         <p>&copy; 2026 Swan Calisthenics Community</p>
-        <p style="font-size: 0.8rem; opacity: 0.7; margin-top: 5px;">Erstellt von Nicolas Brand</p>
+        <p style="font-size: 0.8rem; opacity: 0.8;">Erstellt von Nicolas Brand</p>
         <ul class="footer-links">
-            <li><a href="html/datenschutz_impressum.html">Datenschutz & Impressum</a></li>
+            <li><a href="pages/rechtliches.html">Datenschutz & Impressum</a></li>
         </ul>
     </div>
 </footer>
 
-<!-- BACK TO TOP BUTTON -->
-<a href="#" class="back-to-top" id="backToTop"><img src="images/icons/arrow-up.svg" alt="Pfeil" class="custom-icon small"></a>
+<!-- BACK TO TOP -->
+<a href="#home" class="back-to-top" id="backToTop" aria-label="Nach oben">
+    <svg viewBox="0 0 24 24" fill="none"><path d="M12 19V5M5 12l7-7 7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+</a>
 
-<!-- JAVASCRIPT FOR INTERACTION -->
-<script src="./lib/main.js"></script>
+<!-- TAB BAR (mobil) -->
+<nav class="tabbar" aria-label="Hauptnavigation mobil">
+    <a href="index.html" class="tabbar-item nav-link" data-page="home"><span class="tabbar-icon" aria-hidden="true"></span><span>Home</span></a>
+    <a href="pages/blog/blog.html" class="tabbar-item nav-link" data-page="blog"><span class="tabbar-icon" aria-hidden="true"></span><span>Blog</span></a>
+    <a href="pages/team.html" class="tabbar-item nav-link" data-page="team"><span class="tabbar-icon" aria-hidden="true"></span><span>Team</span></a>
+    <a href="pages/verein.html" class="tabbar-item nav-link" data-page="verein"><span class="tabbar-icon" aria-hidden="true"></span><span>Verein</span></a>
+    <a href="pages/kontakt.html" class="tabbar-item nav-link" data-page="kontakt"><span class="tabbar-icon" aria-hidden="true"></span><span>Kontakt</span></a>
+</nav>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/supabase-client.js"></script>
+<script src="js/main.js"></script>
 </body>
 </html>
