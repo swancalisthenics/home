@@ -10,7 +10,9 @@ function renderBlogGrid() {
     const grid = document.getElementById('blogGrid');
     if (!grid) return;
 
-    grid.innerHTML = BLOG_POSTS.map(post => `
+    const sichtbarePosts = SICHTBARE_POST_IDS.map(id => findPostById(id)).filter(Boolean);
+
+    grid.innerHTML = sichtbarePosts.map(post => `
         <article class="blog-card glass-card" data-category="${post.filterCategory}">
             <a href="post.html?id=${post.id}" class="blog-card-media">
                 <picture>
@@ -71,6 +73,14 @@ function renderBlogPost() {
     document.title = post.metaTitle;
     const metaDescription = document.getElementById('postMetaDescription');
     if (metaDescription) metaDescription.setAttribute('content', post.excerpt);
+
+    // Canonical pro Post (post.html ist ein einziges Template fuer alle Posts,
+    // ein statisches Canonical wuerde alle Posts auf eine Adresse zusammenlegen).
+    // Zeigt immer auf die Live-Domain, auch wenn die Seite unter dev laeuft.
+    const canonical = document.createElement('link');
+    canonical.rel = 'canonical';
+    canonical.href = `https://swancalisthenics.ch/pages/blog/post.html?id=${post.id}`;
+    document.head.appendChild(canonical);
 
     const header = document.getElementById('postHeader');
     header.style.setProperty('--post-hero-img', `url('${post.heroImage}')`);

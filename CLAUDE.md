@@ -1682,13 +1682,15 @@ new-swan-design/
       JS aus `site-chrome.js` injiziert, weil ein direktes Tag ohne
       Umweg über eine erst noch zu ladende Datei minimal frueher greift
       und Analytics-Snippets ueblicherweise so eingebunden werden.
-    - Die Website-ID ist an die Domain `swancalisthenics.github.io`
-      gebunden (Umami trackt pro Domain, nicht pro Pfad) - deckt damit
-      automatisch auch das spaeter geplante `/home/` mit ab, siehe
-      "Repo-/Hosting-Struktur" oben. Sobald der Code einmal in einem
-      eigenen `home`-Repo landet, muss das Snippet dort separat mit
-      eingebaut werden (überträgt sich nicht automatisch mit dem Code
-      selbst).
+    - **Korrigiert (30.09.2026):** Die Website-ID ist *nicht* hart an eine
+      Domain gebunden - das Snippet hat kein `data-domains`, Umami zählt
+      jeden Aufruf mit dieser ID, egal unter welcher Adresse, und zeigt den
+      Hostnamen in der Auswertung an. Das Feld "Domain" in den
+      Umami-Website-Einstellungen ist im Wesentlichen eine Beschriftung
+      (dort jetzt `swancalisthenics.ch`). `dev` und `home` teilen sich
+      dieselbe Website-ID/Statistik, auseinanderhalten lassen sie sich
+      über die Hostname-Auswertung (`swancalisthenics.ch` vs.
+      `swancalisthenics.github.io`).
     - `pages/rechtliches.html` um einen neuen Abschnitt "Web-Analyse
       (Umami)" ergänzt (jetzt Abschnitt 6, nachfolgende Abschnitte
       entsprechend nachnummeriert).
@@ -2006,6 +2008,149 @@ new-swan-design/
     Cronjob, Punkt 71) für die Präsidentin/den Präsidenten direkt beim
     Öffnen sichtbar, nicht nur in der Datenschutzerklärung.
 
+74. **Erster Teil des Vereins-Feedbacks (PDF-Liste "Webseite", 30.09.2026)
+    umgesetzt** - alles, was ohne weitere Infos machbar war. Die noch
+    offenen Punkte daraus stehen gesammelt im Abschnitt "Offene Punkte aus
+    dem Vereins-Feedback" weiter unten.
+    - **Blog aus der Navigation genommen** (Topbar-Template in
+      `js/site-chrome.js` und Tab-Bar auf allen Seiten) - bewusst nur
+      ausgeblendet, nicht gelöscht: `pages/blog/*.html`, `js/blog.js` und
+      `js/blog-data.js` bleiben unverändert und per direktem Link
+      erreichbar. Die Tab-Bar hat damit 4 statt 5 Einträge
+      (Home/Team/Verein/Kontakt); `.tabbar-item` hat `flex: 1`, verteilt
+      sich also ohne CSS-Änderung neu. Die CSS-Regel für das Blog-Tab-Icon
+      in `components.css` bleibt für ein späteres Wiedereinblenden stehen.
+    - **Startseite:** Hero-Button "Nächstes Training" heisst jetzt
+      "Nächstes Community Workout" und ist `btn-secondary` wie die übrigen
+      Hero-Buttons (Platz für den geplanten primären "Jetzt Mitglied
+      werden"-Button, siehe offene Punkte). Button-Texte "WhatsApp-Gruppe"
+      → "WhatsApp" (Hero + Social-Banner; Fliesstexte in den FAQ bewusst
+      unverändert). "Das sind wir" → "Wer *wir* sind" (Akzent weiterhin auf
+      "wir"). Geschichte: "mehr als nur ein Team" → "mehr als nur ein
+      Verein". Satz "Wisch durch unsere letzten Community Workouts."
+      entfernt. "topaktuell" → "laufend". Standort-Titel "Street Workout
+      Park Horgen" → "Street Workout Park" (Adresszeile "8810 Horgen" und
+      Google-Maps-Link unverändert). Social-Banner: "Sessions" entfernt
+      (jetzt "über spontane Events und Location-Wechsel"). Countdown-Label
+      "Nächstes Training:" → "Nächstes Community Workout:".
+    - **Graue Schrift besser lesbar:** `--text-muted` in `css/base.css`
+      kontrastreicher - hell `#5b5b68` → `#44444f`, dunkel `#a8a6b8` →
+      `#c6c4d4` (beide Dark-Mode-Blöcke).
+    - **Team:** Einleitung "Lerne das Team kennen!". Neue
+      Reihenfolge Alessandro, Louie, Giada, Nicolas (Louie oben rechts,
+      Nicolas unten rechts). Neue Instagram-Links: Ale
+      `alecalisthenic.s`, Louie `louie__swan` (Tracking-Parameter `?stkn=`
+      aus den geteilten Links entfernt).
+    - **Kontakt:** Ansprechperson-Karte (Alessandro) mailt jetzt an
+      `info@swancalisthenics.ch`. Betreff-Auswahl ohne "Newsletter" und die
+      beiden "Blog"-Einträge; Standardwert jetzt "Allgemeines Feedback /
+      Sonstiges" (`data-value` "Feedback: Allgemeines Feedback", bestehender
+      Wert, keine DB-Änderung nötig).
+    - **Blog wieder in der Navigation** (kurz nach dem Ausblenden auf Wunsch
+      zurückgeholt, an der ursprünglichen Position nach "Home"). Die
+      Übersicht zeigt nur noch die 3 bestbewerteten Posts: neue Konstante
+      `SICHTBARE_POST_IDS = [3, 1, 7]` in `js/blog-data.js`, von
+      `renderBlogGrid()` (`js/blog.js`) in genau dieser Reihenfolge
+      gerendert. Die übrigen 11 Posts bleiben im Array und per
+      `post.html?id=...` erreichbar (nötig, weil sichtbare Posts auf sie
+      verlinken). Filterleiste in `pages/blog/blog.html` per `hidden`
+      ausgeblendet (alle 3 sichtbaren Posts sind `uebungen`, der
+      Ernährung-Filter wäre leer); Einleitung jetzt nur "Tipps rund ums
+      Training.". Ranking-Grundlage: Bewertung aller 14 Posts nach Bildern,
+      Text und Info-Wichtigkeit (Post 3: 14/15, Post 1: 13/15, Post 7: 12/15).
+    - **Blog-Texte bereinigt (alle 14 Posts):** Markdown-Reste (`**...**`,
+      `*...*`), die als rohe Sternchen angezeigt wurden, zu `<strong>`/`<em>`
+      umgewandelt; alle "ß" auf Schweizer "ss" umgestellt (plus Tippfehler
+      "Barfuszschuhe"); Datum einheitlich "8. Juli 2026" statt teils
+      "08. Juli 2026". Doppelte Erklärungen über mehrere Posts hinweg
+      (Mikrorisse, Protein, Wasser, Klimmzug-Progression, Community) auf
+      einen Satz gekürzt und durch Querverweise auf den jeweils
+      zuständigen Post ersetzt (`post.html?id=...`); dafür neue Regel
+      `.post-content a:not(.btn)` in `css/pages/blog.css` (Rot +
+      Unterstreichung). Unbelegtes "Es ist wissenschaftlich bewiesen" in
+      Post 14 entfernt.
+    - **Galerie-Bilder in Post 3 (Skills Training) nicht mehr stark
+      beschnitten:** `.post-image-gallery img` hatte eine feste Höhe von
+      220px bei voller Breite - bei den beiden Hochformat-Fotos
+      (`handstand2.jpeg` 684×955, `chin-up.jpeg` 726×982) fiel so oben und
+      unten der Grossteil weg, mobil besonders stark. Jetzt
+      `aspect-ratio: 3 / 4` + `height: auto` (weiterhin `object-fit:
+      cover`, damit beide Bilder nebeneinander gleich hoch bleiben): gemessen
+      96 % bzw. 99 % des Bildes sichtbar, mobil wie am PC. Die Galerie kommt
+      nur in Post 3 vor.
+    - **"Neuigkeiten" und "Änderungen" sind jetzt öffentlich** (vorher
+      mitgliedergeschützt, siehe Punkt 72): Die beiden Verein-Hub-Balken
+      sind immer normale Links (kein `hub-row-locked`-Zwilling und kein
+      `initAuthGate()` mehr in `main.js`), auf `pages/neuigkeiten.html`/
+      `pages/aenderungen.html` sind `#notLoggedIn` und das Inline-Gate-Skript
+      entfernt, der Inhalt ist nicht mehr `hidden`. "Mitglieder" und
+      "Trainings-Anmeldung" bleiben unverändert hinter dem Login.
+    - **Footer-Copyright** auf allen 14 Seiten: "© 2026 Swan Calisthenics
+      Community" → "© 2026 Swan Calisthenics".
+    - **Impressum/Datenschutz (`pages/rechtliches.html`) auf "Verein und
+      Community" umgestellt** - Swan Calisthenics ist inzwischen beides:
+      Anbieter "Swan Calisthenics – Verein & Community", Alessandro als
+      "Gründer" statt "Communitygründer", verantwortliche Stelle "der oben
+      genannte Verein" (vorher grammatikalisch falsch "der ... genannte
+      Community"), Foto-Abschnitt "Vereins- und Communityaktivitäten" /
+      "berechtigtes Interesse des Vereins". Impressum-Mail von Alessandros
+      privater Adresse auf `info@swancalisthenics.ch` umgestellt (die
+      Datenschutz-Abschnitte verweisen auf "die oben genannte E-Mail-Adresse",
+      gelten also automatisch mit). Auf der Team-Seite bleibt Alessandros
+      private Mail in seiner eigenen Karte bewusst stehen.
+    - **Footer auf allen 14 Seiten:** vierter Button mit Mail-Icon,
+      `mailto:info@swancalisthenics.ch` (bewusst `mailto:` statt
+      `openEmailDialog()` - das E-Mail-Modal existiert nur auf einzelnen
+      Seiten, nicht auf allen).
+
+75. **Technische SEO-Grundlagen (30.09.2026, nach dem Umzug auf
+    `swancalisthenics.ch`):**
+    - **Canonical statt `noindex` für `dev`:** `dev` ist eine fast
+      identische Kopie der Live-Seite (Duplicate Content). Bewusst **kein**
+      `noindex` in `dev`, weil der Code später 1:1 nach `home` wandert und
+      die Live-Seite sonst aus Google fliegen würde. Stattdessen zeigt auf
+      jeder öffentlichen Seite `<link rel="canonical">` fest auf
+      `https://swancalisthenics.ch/...` - auf `dev` heisst das "Original
+      ist die Live-Seite", auf `home` zeigt es auf sich selbst. Neue Seiten
+      bekommen dasselbe Muster (absolute URL auf `swancalisthenics.ch`).
+    - `pages/blog/post.html` hat bewusst **kein** statisches Canonical (ein
+      Template für alle Posts - ein statisches Canonical würde alle Posts
+      zusammenlegen); `renderBlogPost()` in `js/blog.js` hängt es pro Post
+      an (`post.html?id=<id>`).
+    - **Open Graph / Twitter-Card** auf allen öffentlichen Seiten (Titel,
+      Beschreibung, `og:image` = Gruppenfoto vom 30.8.2026 als absolute
+      URL) - für schöne Link-Vorschauen in WhatsApp/Instagram.
+    - **`meta description` ergänzt** für Kontakt, Verein, Rechtliches und
+      Vereinsdokumente (hatten keine), jeweils mit "Horgen" für die lokale
+      Suche.
+    - **Eine `<h1>` pro Seite:** Der Seitentitel (`.section-title`) war
+      überall ausser der Startseite ein `<h2>` - jetzt `<h1>` (jeweils nur
+      der erste `.section-title` einer Seite). Optisch identisch, da
+      `.section-title` Grösse/Gewicht/Abstände selbst setzt (per
+      `getComputedStyle` gegen ein unverändertes `<h2 class="section-title">`
+      verglichen). Ausnahme `pages/rechtliches.html`: behält seine zwei
+      `<h1>` (Impressum + Datenschutzerklärung), der Seitentitel bleibt `<h2>`.
+    - **`noindex`** für die Mitgliederseiten `mein-profil`, `mitglieder`,
+      `postfach`, `trainings-anmeldung` (für Besucher ohne Login leer).
+    - **Strukturierte Daten** (`application/ld+json`, schema.org
+      `SportsClub`) in `index.html`: Name, Beschreibung, Logo, Mail, Ort
+      Horgen/8810, Trainingszeit Sonntag 18-20 Uhr, Instagram/TikTok.
+      Bewusst **ohne** Strassenadresse (die Impressum-Adresse ist privat,
+      trainiert wird im öffentlichen Park).
+    - **`robots.txt` + `sitemap.xml`** im Repo-Root (nur öffentliche Seiten
+      + die 3 sichtbaren Blog-Posts, absolute URLs auf
+      `swancalisthenics.ch`). Greifen erst in `home` (dort Root der
+      Domain); in `dev` liegen sie unter `/dev/` und werden von
+      Suchmaschinen ignoriert - also gefahrlos. Beim Sichtbarmachen weiterer
+      Blog-Posts (`SICHTBARE_POST_IDS`) auch die Sitemap ergänzen.
+    - Im Repo `old` haben alle Seiten zusätzlich `noindex` (Archiv, GitHub
+      Pages dort ohnehin aus - schützt, falls es je eingeschaltet wird).
+    - **Nicht im Code, vom Verein selbst zu erledigen:** Google Search
+      Console für `swancalisthenics.ch` (Bestätigung per TXT-Eintrag bei
+      Infomaniak, danach Sitemap einreichen), Google-Unternehmensprofil
+      (Maps), Links auf die Seite sammeln (Instagram-/TikTok-Bio,
+      Vereinsliste der Gemeinde Horgen, lokale Presse).
+
 ## Mitgliederbereich mit Supabase — in Arbeit
 
 Ursprünglich eine reine Konzeptphase aus einem Brainstorming-Gespräch,
@@ -2027,21 +2172,36 @@ und Zugriffsmuster wie "eigenes Profil lesen/bearbeiten, andere nur
 eingeschränkt" lassen sich mit Row-Level-Security direkt in der Datenbank
 abbilden statt in eigenem Code.
 
-**Repo-/Hosting-Struktur, Domain wechselt noch:** Die Seite läuft aktuell
-provisorisch auf `swancalisthenics.github.io/dev/` (dieses Repo, `dev`,
-GitHub-Organisation `swancalisthenics`). Geplante Ziel-Struktur, drei Repos
-unter derselben Organisation:
-- `dev` — dieses Repo, bleibt dauerhaft die aktive Entwicklungsversion.
-  Wird beim Wechsel unten NICHT aufgegeben oder ersetzt.
-- `home` — aktuell die andere, eigenständige echte Produktions-Website
-  dieses Vereins (separates Repo/Codebase, lokal `C:\Source\home`, siehe
-  Überblick oben) - die Seite, die heute wirklich live ist. Sobald die
-  `dev`-Version stabil/fertig genug ist, wird `home` mit der dann
-  stabilen `dev`-Version "gewechselt" (ersetzt) - `home` wird dadurch zur
-  neuen Live-Adresse für dieses Redesign, unter `swancalisthenics.github.io/home`.
-- `old` — Ziel-Repo, in das der bisherige Inhalt von `home` (die jetzige
-  echte, alte Seite) beim obigen Wechsel verschoben/archiviert wird,
-  statt einfach überschrieben zu werden.
+**Repo-/Hosting-Struktur (Stand 30.09.2026):** Drei Repos unter der
+GitHub-Organisation `swancalisthenics`, alle per GitHub Pages
+veröffentlicht. Der Wechsel dev → home hat am 23.09.2026 stattgefunden
+("Redesign aus dev übernehmen" in `home`, alte Seite nach `old`):
+
+| Repo | Adresse | Lokal | Rolle |
+|---|---|---|---|
+| `dev` (dieses Repo) | `swancalisthenics.github.io/dev/` | `C:\Source\Git\new-swan-design` | Aktive Entwicklungsversion, bleibt dauerhaft bestehen |
+| `home` | **`https://swancalisthenics.ch/`** (eigene Domain) | `C:\Source\Git\swancalisthenics-home` | Live-Website, übernimmt jeweils den stabilen Stand aus `dev` |
+| `old` | `swancalisthenics.github.io/old/` (Pages nicht aktiv, 404) | `C:\Source\Git\swancalisthenics-old` | Archiv der ursprünglichen Seite vor dem Redesign |
+
+**Eigene Domain `swancalisthenics.ch` (seit 30.09.2026):** Domain und
+Postfach `info@swancalisthenics.ch` liegen bei Infomaniak (Nameserver
+`ns11/ns12.infomaniak.ch`). DNS-Zone dort: 4× A (`185.199.108–111.153`),
+4× AAAA (`2606:50c0:8000–8003::153`), CNAME `www` →
+`swancalisthenics.github.io`, MX `mta-gw.infomaniak.ch` (Mail - nie
+anfassen). Im Repo `home` liegt dazu die von GitHub angelegte Datei
+`CNAME` (Inhalt `swancalisthenics.ch`) - beim Übernehmen von Code aus
+`dev` nach `home` **nicht löschen oder überschreiben**, sonst fällt die
+Domain weg. Die alte Adresse `swancalisthenics.github.io/home/...` leitet
+per 301 inkl. Pfad auf die Domain um (alte QR-Codes funktionieren
+weiter, solange die Domain bei GitHub eingetragen und bei Infomaniak
+bezahlt bleibt). Supabase (Soll-Einstellung unter Authentication → URL
+Configuration): Site URL `https://swancalisthenics.ch/`,
+Redirect URLs zusätzlich `https://swancalisthenics.ch/**` und
+`https://www.swancalisthenics.ch/**` (der alte Eintrag
+`https://swancalisthenics.github.io/**` bleibt für `dev` bestehen).
+Offen/optional: `dev.swancalisthenics.ch` als Subdomain für `dev`
+(CNAME `dev` → `swancalisthenics.github.io` + Custom Domain im Repo
+`dev` + Redirect URL in Supabase).
 
 Nichts davon eigenmächtig auslösen (Inhalt nach `home` oder `old` pushen,
 den Wechsel selbst anstossen o. Ä.) ohne ausdrückliche Anweisung, welches
@@ -2349,6 +2509,47 @@ WhatsApp-Versand loszuwerden? Ausserdem noch offen bei > 50 GB pro Training:
 Nur eine automatisierte, drastische Verkleinerung wird kaum reichen, es
 müsste vermutlich auch eine Auswahl/Kuration stattfinden (wer wählt aus,
 und wann) - reine Kompression allein löst dieses Datenvolumen nicht.
+
+## Offene Punkte aus dem Vereins-Feedback (PDF "Webseite", 30.09.2026)
+
+Der umsetzbare Teil ist erledigt (siehe Punkt 74). Diese Punkte warten auf
+Infos oder eine Entscheidung vom Verein - nichts davon eigenmächtig
+umsetzen, ohne dass die fehlende Info vorliegt:
+
+1. **Button "Jetzt Mitglied werden" (Link zu Forms)** - gross und ganz
+   oben auf der Startseite (Hero, als `btn-primary`) und nochmals auf der
+   Verein-Seite. **Fehlt:** der Link zum Anmeldeformular.
+2. **TikTok-Links von Ale und Louie aktualisieren** - die Instagram-Links
+   sind erledigt, TikTok steht noch auf `@alecalisthenic.s` bzw.
+   `@louie_trainiert`. **Fehlt:** die aktuellen TikTok-Links.
+3. **Aktuelle Gruppenbilder hochladen, evtl. als Galerie** (Startseite,
+   Community-Slider). **Fehlt:** die Bilder; offen, ob eine eigene Galerie
+   gewünscht ist oder der bestehende Slider reicht (siehe auch die
+   Bild-Komprimierungs-Notiz unter "Weitere Ideen für Features" oben).
+4. **"Für jedes Level": Bilder von Nicolas durch Community-Fotos
+   ersetzen** (`assets/images/level.1.jpg`, `level.2.png`, `level.3.png`).
+   **Fehlt:** die Fotos.
+5. **Merch auf der Kontaktseite einfügen.** **Offen:** was genau - Link zu
+   einem Shop, Bilder der Artikel, eigener Betreff im Kontaktformular?
+6. **Verein: "Die ganzen Dokumente brauchen wir alle nicht".** **Offen:**
+   nur den Balken "Vereinsdokumente" im Verein-Hub entfernen, oder auch die
+   Seite `pages/vereinsdokumente.html` (+ `css/pages/vereinsdokumente.css`)
+   komplett löschen?
+7. **Blog auf wenige Posts beschränken:** "Wie läuft ein Community Workout
+   ab", "Street Workout vs. Gym", "Skills für Anfänger". **Zwischenstand:**
+   Die Übersicht zeigt vorerst die 3 bestbewerteten Posts 3, 1 und 7 (Punkt
+   74). Noch offen: ein echter Post "Street Workout vs. Gym" (Post 7
+   vergleicht Home-Workout mit dem Park, nicht mit dem Gym) und kleine
+   Korrekturen an Post 3 ("Sonntagnachmittag" passt nicht zu 18-20 Uhr,
+   Tippfehler "des Posten", Alt-Texte von core.jpeg/warm-up.jpeg,
+   Kategorie). Ursprünglicher Abgleich mit
+   `js/blog-data.js`: "Community Workout" (id 3) passt zum ersten Thema;
+   "Street Workout vs. Gym" gibt es noch nicht ("Home-Workout vs.
+   Calisthenics-Park", id 7, ist nur ähnlich); "Skills für Anfänger" am
+   ehesten "Die 5 wichtigsten Basics" (id 1) oder "Von Null an die Stange"
+   (id 6). **Offen:** welche Posts genau bleiben, ob fehlende neu
+   geschrieben werden, ob die übrigen gelöscht oder nur ausgeblendet
+   werden, und wann der Blog wieder in die Navigation kommt.
 
 ## Offene Punkte für die Zukunft
 
